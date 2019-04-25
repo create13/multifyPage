@@ -28,7 +28,12 @@ const webpackConfig = {
             },
             {
                 test: /\.(scss|sass|css)$/,
-                loader: ExtractTextPlugin.extract({fallback: "style-loader", use: "css-loader"})
+                loader: ExtractTextPlugin.extract({fallback: "style-loader", use: 'css-loader'}),
+            },
+            {
+                test: /\.less?$/,
+                use:[ 'style-loader','css-loader','less-loader'],
+                exclude: /node_modules/
             },
             {
                 test: /\.tsx?$/,
@@ -66,7 +71,7 @@ function getEntries(globPath) {
     return entries;
 }
        
-const entries = getEntries('src/pages/**/index.tsx');
+const entries = getEntries('src/pages/*/index.tsx');
 Object.keys(entries).forEach(function(name) {
     webpackConfig.entry[name] = entries[name];
     const plugin = new HtmlWebpackPlugin({
