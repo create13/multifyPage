@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
+import { Layout } from 'antd';
+import '../static/css/homePage.less'
+import BoxHeader from './outBox/boxHeader'
+import BoxSide from './outBox/boxSide'
+const {Header, Sider, Content,} = Layout;
+
 class WTSHome extends Component {
   render() {
     return (
       <div className="home-page">
-      antd
-      <Button type="primary">Primary</Button>
-      <Button>Default</Button>
-      <Button type="dashed">Dashed</Button>
-      <Button type="danger">Danger</Button>
+        <Layout>
+          <Header>Header
+            <BoxHeader />
+          </Header>
+          <Layout>
+            <Sider>
+              <BoxSide />
+            </Sider>
+            <Content>Content</Content>
+          </Layout>
+        </Layout>
       </div>
     );
   }
