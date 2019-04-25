@@ -6,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
  
 const webpackConfig = {
+    mode:'development',
     entry: {},
     output:{
         path:path.resolve(__dirname, './dist/'),
@@ -14,17 +15,23 @@ const webpackConfig = {
     //设置开发者工具的端口号,不设置则默认为8080端口
     devServer: {
         inline: true,
-        port: 8082
+        port: 8082,
+        compress: true
     },
     module:{
         rules:[
             {
                 test:/\.(js|jsx)$/,
                 exclude:/node_modules/,
-                loader:'babel-loader',
-                query:{
-                    presets:['es2015','react']
-                }
+                use: [ 
+                    {
+                        loader:'babel-loader',
+                        options:{
+                            presets:['es2015','react'],
+                            plugins: [['import', { "libraryName": "antd", "style": true }]]//--通过bable-plugin-import依赖 实现antd按需加载
+                        },
+                    }
+                ]
             },
             {
                 test: /\.(scss|sass|css)$/,
@@ -32,8 +39,7 @@ const webpackConfig = {
             },
             {
                 test: /\.less?$/,
-                use:[ 'style-loader','css-loader','less-loader'],
-                exclude: /node_modules/
+                use:[ 'style-loader','css-loader','less-loader']
             },
             {
                 test: /\.tsx?$/,
@@ -51,7 +57,7 @@ const webpackConfig = {
         new CleanWebpackPlugin(
             ['dist'],
             {
-                root: __dirname,　　　　　　　　　
+                root: __dirname,　　　　　　　
                 verbose:  true,        　　　　　　　　　　
                 dry:      false        　　　　　　　　　　
             }
