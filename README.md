@@ -1,44 +1,70 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 编译流程
+1.npm run start 开发版运行 访问链接http://localhost:8082/page1/page1.html
+2.npm run build 生产版打包
+## 技术栈
+1.react
+2.redux
+3.webpack
+4.react-redux
+5.redux-saga
+6.ts
+7.less
+## 搭建过程 具体参照https://blog.csdn.net/qq_38111015/article/details/89252606
+1.安装脚手架
+npm install -g create-react-app
+2.create-react-app脚手架搭建ts项目
+create-react-app 项目名 --scripts-version=react-scripts-ts
+3.根目录下新建webpack.config.js文件 贴入webpack出入口配置 打包多页面文件 以及热更新等
+(1) 安装glob 获取指定文件内容 放入到entry入口文件中
+4.安装所需内容到package.json中 具体安装内容 参照package.json
+(1)安装redux
+npm install --save redux
+(2)安装react-redux
+npm install --save react-redux
+(3)安装路由
+npm install --save react-router-dom
+(4) 安装redux-saga
+npm install --save redux-saga
+(5) 安装antDesign
+npm install antd --save
+(6) 安装less less-loader css-loader style-loader等
+npm install less less-loader css-loader style-loader -D
+(7) 安装ts-loader 并且在webpack.config.js中进行解析配置
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+5.然后删除src下面的registerServiceWorker.js（该文件用于构建pwa应用用的，暂时我们用不了）和 logo.svg文件（不想处理图片文件）和 App.test.js(用于测试用的)。然后在src下建2个文件夹，将src下的App.css、App.js、index.css、index.js分别粘贴进去
+6.进入public文件下，删除favicon.ico和 manifest.json(构建pwa用的）
+7.删除当前目录中的node_modules，重新npm install生成
+8.npm run start 运行项目
+## 文件目录详情
+├─dist
+│  ├─page1 // 打包出的多页面文件
+│  └─page2
+├─node_modules // 安装依赖
+│ 
+├─public // 公共资源文件
+└─src
+    └─pages 
+        ├─page1
+        │  ├─api // 接口相关配置
+        │  ├─components // 组件内容
+        │  │  ├─approval
+        │  │  └─outBox
+        │  ├─routes // 路由配置
+        │  ├─static // 静态资源
+        │  │  ├─css
+        │  │  └─image
+        │  │      └─home
+        │  ├─store // redux数据
+        │  └─utils // 工具类
+        └─page2
+            ├─api
+            ├─components
+            │  ├─approval
+            │  └─outBox
+            ├─routes
+            ├─static
+            │  ├─css
+            │  └─image
+            │      └─home
+            ├─store
+            └─utils

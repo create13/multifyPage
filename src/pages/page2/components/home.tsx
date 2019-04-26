@@ -13,7 +13,6 @@ class WTSHome extends Component {
     return (
       <BrowserRouter>
       <div className="home-page">
-      {/* <Link to="/MySubmitApproval">跳转</Link> */}
         <Layout>
           <Header>Header
             <BoxHeader />
@@ -23,11 +22,14 @@ class WTSHome extends Component {
               <BoxSide />
             </Sider>
             <Content>
+            <Link to="/MySubmitApproval">跳转</Link>
               <BoxContent />
             </Content>
           </Layout>
         </Layout>
-        {/* <Route path="/MySubmitApproval" component={MySubmitApproval}></Route> */}
+        <Route path="/MySubmitApproval" component={MySubmitApproval}>
+
+        </Route>
       </div>
       </BrowserRouter>
     );
