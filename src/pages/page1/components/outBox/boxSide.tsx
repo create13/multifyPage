@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Link } from 'react-router-dom'
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 class boxSide extends Component {
@@ -46,21 +47,23 @@ class boxSide extends Component {
     render() {
         let { menuList, openKeys } = this.state;
         return (
-        <div className="box-side">
-        {menuList.map((item, index) => {
-            return (
-                <Menu mode="inline" key={index + 1} openKeys={ openKeys } onOpenChange={this.onOpenChange} style={{ width: 240 }}>
-                    <SubMenu key={index} title={<span><span>{item.menuFirst}</span></span>}>
-                        {item.menuArray.map((menu, indexs) => {
-                            return (
-                                <Menu.Item key={indexs}>{menu.menuSecond}</Menu.Item>
-                            )
-                        })}
-                    </SubMenu>
-                </Menu>
-            )
-        })}
-        </div>
+        <BrowserRouter>
+            <div className="box-side">
+                {menuList.map((item, index) => {
+                    return (
+                        <Menu mode="inline" key={index + 1} openKeys={ openKeys } onOpenChange={this.onOpenChange} style={{ width: 240 }}>
+                            <SubMenu key={index} title={<span><span>{item.menuFirst}</span></span>}>
+                                {item.menuArray.map((menu, indexs) => {
+                                    return (
+                                        <Menu.Item key={indexs}>{menu.menuSecond}</Menu.Item>
+                                    )
+                                })}
+                            </SubMenu>
+                        </Menu>
+                    )
+                })}
+            </div>
+        </BrowserRouter>
         );
     }
     }
