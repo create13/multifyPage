@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom'
+import routes from '../../routes/index'
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 class boxSide extends Component {
@@ -55,12 +56,22 @@ class boxSide extends Component {
                             <SubMenu key={index} title={<span><span>{item.menuFirst}</span></span>}>
                                 {item.menuArray.map((menu, indexs) => {
                                     return (
-                                        <Menu.Item key={indexs}>{menu.menuSecond}</Menu.Item>
+                                        <Menu.Item key={indexs}>{ menu.menuSecond }</Menu.Item>
                                     )
                                 })}
                             </SubMenu>
                         </Menu>
                     )
+                })}
+                {/* <Menu>
+                <SubMenu>
+                    <Menu.Item><Link to="/boxContent/mySubmitApproval">演示</Link></Menu.Item>
+                </SubMenu>
+                </Menu> */}
+                {routes.map((route, rIndex) => {
+                    if (!route.exact) {
+                        <Route key={ rIndex } path={ route.path } component={ route.component }></Route>
+                    }
                 })}
             </div>
         </BrowserRouter>

@@ -3,6 +3,7 @@ import { Layout } from 'antd';
 import '../static/css/homePage.less'
 import BoxHeader from './outBox/boxHeader'
 import BoxSide from './outBox/boxSide'
+import BoxContent from './outBox/boxContent'
 const {Header, Sider, Content,} = Layout;
 
 class WTSHome extends Component {
@@ -17,7 +18,9 @@ class WTSHome extends Component {
             <Sider>
               <BoxSide />
             </Sider>
-            <Content>Content</Content>
+            <Content>
+              <BoxContent />
+            </Content>
           </Layout>
         </Layout>
       </div>
