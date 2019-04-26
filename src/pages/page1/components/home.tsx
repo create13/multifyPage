@@ -6,6 +6,7 @@ import BoxHeader from './outBox/boxHeader'
 import BoxSide from './outBox/boxSide'
 import BoxContent from './outBox/boxContent'
 import MySubmitApproval from './approval/mySubmitApproval'
+import routes from '../routes/index'
 const {Header, Sider, Content,} = Layout;
 
 class WTSHome extends Component {
@@ -13,7 +14,6 @@ class WTSHome extends Component {
     return (
       <BrowserRouter>
       <div className="home-page">
-      {/* <Link to="/MySubmitApproval">跳转</Link> */}
         <Layout>
           <Header>Header
             <BoxHeader />
@@ -23,11 +23,19 @@ class WTSHome extends Component {
               <BoxSide />
             </Sider>
             <Content>
+              <Link to="/boxContent/mySubmitApproval">跳转</Link>
               <BoxContent />
             </Content>
           </Layout>
         </Layout>
-        {/* <Route path="/MySubmitApproval" component={MySubmitApproval}></Route> */}
+        {/* <Route path="/boxContent/mySubmitApproval" component={MySubmitApproval}></Route> */}
+        {routes.map((route, rIndex) => {
+          console.log(route);
+          if (!route.exact) {
+            <Route key={rIndex} path={route.path} render={(props: any) => (<route.component {...props} routes={route.routes}/>)} />
+              // <Route key={ rIndex } path={ route.path } component={ route.component }></Route>
+          }
+        })}
       </div>
       </BrowserRouter>
     );

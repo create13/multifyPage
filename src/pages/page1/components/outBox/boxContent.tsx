@@ -74,6 +74,9 @@ const oriTargetKeys = mockData
     }),
   };
 class BoxContent extends Component {
+  constructor(props:any) {
+    super(props)
+  }
   state = {
     targetKeys: oriTargetKeys,
     selectedKeys: [],
@@ -95,6 +98,7 @@ class BoxContent extends Component {
     this.setState({ disabled });
   };
   render() {
+    console.log('propsContent',this.props);
     const { targetKeys, selectedKeys, disabled } = this.state;
     return (
       <div className="box-content">

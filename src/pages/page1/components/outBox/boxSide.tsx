@@ -63,11 +63,11 @@ class boxSide extends Component {
                         </Menu>
                     )
                 })}
-                {/* <Menu>
+                <Menu>
                 <SubMenu>
                     <Menu.Item><Link to="/boxContent/mySubmitApproval">演示</Link></Menu.Item>
                 </SubMenu>
-                </Menu> */}
+                </Menu>
                 {routes.map((route, rIndex) => {
                     if (!route.exact) {
                         <Route key={ rIndex } path={ route.path } component={ route.component }></Route>
