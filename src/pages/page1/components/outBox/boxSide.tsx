@@ -57,7 +57,7 @@ class boxSide extends Component {
                                 {item.menuArray.map((menu, indexs) => {
                                     return (
                                         <Menu.Item key={indexs + 'item'}>
-                                            <Link key={indexs + 1 + 'router'} to={routes[Number(indexs) + 1].path}>{ menu.menuSecond + indexs + 1 }</Link>
+                                            <Link key={indexs + 1 + 'router'} to={routes[Number(indexs) + 1].path}>{ menu.menuSecond}</Link>
                                         </Menu.Item>
                                     )
                                 })}
