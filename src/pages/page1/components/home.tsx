@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { HashRouter, Route, Redirect } from 'react-router-dom'
+import routes from '../routes/index'
 import { Layout } from 'antd';
 import '../static/css/homePage.less'
 import BoxHeader from './outBox/boxHeader'
@@ -13,10 +14,10 @@ class WTSHome extends Component {
   }
   render() {
     return (
-      // <BrowserRouter>
+      <HashRouter>
       <div className="home-page">
         <Layout>
-          <Header>Header
+          <Header>
             <BoxHeader />
           </Header>
           <Layout>
@@ -28,8 +29,19 @@ class WTSHome extends Component {
             </Content>
           </Layout>
         </Layout>
+        {routes.map((route, rIndex) => {
+          if (!route.exact) {
+              return (
+                <Route key={rIndex} path={route.path} render={(props: any) => (<route.component {...props} routes={route.children}/>)} />
+              )
+          } else {
+            return (
+              <Route key={rIndex} path={route.path} exact render={(props: any) => (<route.component {...props} routes={route.children}/>)} />
+            )
+          }
+      })}
       </div>
-      // </BrowserRouter>
+      </HashRouter>
     );
   }
 }

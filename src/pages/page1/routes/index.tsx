@@ -4,10 +4,9 @@ import DefaultHome from '../components/contentChild/defaultHome'
 import MySubmitApproval from '../components/approval/mySubmitApproval'
 let routes = [
     {path: '/WTSHome', component: WTSHome, exact: true},
-    {path: '*', component: BoxContent},
+    {path: '/', component: DefaultHome},
     {path: '/boxContent', component: BoxContent,
-        routes: [
-            {path: '/boxContent', component: DefaultHome},
+    children: [
             {path: '/mySubmitApproval', component: MySubmitApproval}
         ]
     }
