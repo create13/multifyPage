@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import routes from '../../routes/index'
-import DefaultHome from '../contentChild/defaultHome'
+// import DefaultHome from '../contentChild/defaultHome'
 import { Route } from 'react-router-dom'
 import '../../static/css/boxContent.less'
 class BoxContent extends Component {
@@ -9,14 +9,6 @@ class BoxContent extends Component {
   }
 
   render() {
-    // console.log(this.props);
-    // const defaultRouter:any[] = [{path: '/', component: DefaultHome}]
-    // let dataRoute:any[] = [];
-    // if (!this.props.children) {
-    //   dataRoute = defaultRouter
-    // } else {
-    //   // dataRoute = this.props;
-    // }
     return (
       <div className="box-content">
       {routes.map((route:any, index:number) => {

@@ -50,17 +50,35 @@ class boxSide extends Component {
         return (
         <HashRouter>
             <div className="box-side">
-                {menuList.map((item, index) => {
+            {menuList.map((item, index) => {
                     return (
-                        <Menu mode="inline" key={index + 1} openKeys={ openKeys } onOpenChange={this.onOpenChange} style={{ width: 240 }}>
+                        <Menu mode="inline" key={index + 'menuList'} openKeys={ openKeys } onOpenChange={this.onOpenChange} style={{ width: 240 }}>
                             <SubMenu key={index} title={<span><span>{item.menuFirst}</span></span>}>
                                 {item.menuArray.map((menu, indexs) => {
                                     return (
-                                        <Menu.Item key={indexs}>
+                                        <Menu.Item key={indexs + 'item'}>
+                                            <Link key={indexs + 1 + 'router'} to={routes[Number(indexs) + 1].path}>{ menu.menuSecond + indexs + 1 }</Link>
+                                        </Menu.Item>
+                                    )
+                                })}
+                            </SubMenu>
+                        </Menu>
+                    )
+                })}
+                {/* {menuList.map((item, index) => {
+                    return (
+                        <Menu mode="inline" key={index + 'menuList'} openKeys={ openKeys } onOpenChange={this.onOpenChange} style={{ width: 240 }}>
+                            <SubMenu key={index} title={<span><span>{item.menuFirst}</span></span>}>
+                                {item.menuArray.map((menu, indexs) => {
+                                    return (
+                                        <Menu.Item key={indexs + 'item'}>
                                             {routes.map((route, rIndex) => {
-                                                if (!route.exact) {
+                                                // console.log(rIndex);
+                                                if (route.path !== '/') {
+                                                    console.log('route', route);
+                                                    console.log(rIndex);
                                                     return (
-                                                        <Link key={rIndex} to={route.path}>{ menu.menuSecond }</Link>
+                                                        <Link key={rIndex + 'router'} to={route.path}>{ menu.menuSecond + rIndex }</Link>
                                                     )
                                                 }
                                             })}
@@ -70,7 +88,7 @@ class boxSide extends Component {
                             </SubMenu>
                         </Menu>
                     )
-                })}
+                })} */}
             </div>
         </HashRouter>
         );

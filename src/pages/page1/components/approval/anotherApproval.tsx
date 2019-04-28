@@ -12,7 +12,7 @@ export default class anotherApproval extends Component {
   render() {
     return (
       <div>
-        
+        代办审批
       </div>
     )
   }
