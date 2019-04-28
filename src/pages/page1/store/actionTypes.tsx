@@ -1,0 +1,1 @@
+export const ADD_LIST_DATA = 'add_list_data'
