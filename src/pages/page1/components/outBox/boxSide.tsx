@@ -64,7 +64,6 @@ class boxSide extends Component {
                                                     )
                                                 }
                                             })}
-                                        {/* { menu.menuSecond } */}
                                         </Menu.Item>
                                     )
                                 })}
@@ -72,11 +71,6 @@ class boxSide extends Component {
                         </Menu>
                     )
                 })}
-                {/* <Menu>
-                <SubMenu>
-                    <Menu.Item><Link to="/boxContent/mySubmitApproval">演示</Link></Menu.Item>
-                </SubMenu>
-                </Menu> */}
             </div>
         </HashRouter>
         );

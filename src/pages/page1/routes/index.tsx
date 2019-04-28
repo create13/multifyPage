@@ -1,14 +1,11 @@
-import WTSHome from '../components/home'
+// import WTSHome from '../components/home'
 import BoxContent from '../components/outBox/boxContent'
 import DefaultHome from '../components/contentChild/defaultHome'
 import MySubmitApproval from '../components/approval/mySubmitApproval'
 let routes = [
-    {path: '/WTSHome', component: WTSHome, exact: true},
-    {path: '/', component: DefaultHome},
-    {path: '/boxContent', component: BoxContent,
-    children: [
-            {path: '/mySubmitApproval', component: MySubmitApproval}
-        ]
-    }
+    {path: '/', component: DefaultHome, exact: true},
+    {path: '/boxContent', component: BoxContent},
+    {path: '/mySubmitApproval', component: MySubmitApproval},
+    {path: '/mySubmitApproval', component: MySubmitApproval}
 ]
 export default routes;

@@ -12,5 +12,4 @@ class MySubmitApproval extends Component {
     );
   }
 }
-
 export default MySubmitApproval;
