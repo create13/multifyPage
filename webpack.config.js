@@ -16,7 +16,8 @@ const webpackConfig = {
     devServer: {
         inline: true,
         port: 8082,
-        compress: true
+        compress: true,
+        historyApiFallback: true
     },
     module:{
         rules:[

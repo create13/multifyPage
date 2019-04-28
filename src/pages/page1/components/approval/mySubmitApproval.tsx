@@ -7,7 +7,7 @@ class MySubmitApproval extends Component {
     console.log('props', this.props);
     return (
       <div className="submit-out">
-      my
+      MySubmitApproval
       </div>
     );
   }
