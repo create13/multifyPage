@@ -9,6 +9,7 @@
 5.redux-saga
 6.ts
 7.less
+8.axios
 ## 搭建过程 具体参照https://blog.csdn.net/qq_38111015/article/details/89252606
 1.安装脚手架
 npm install -g create-react-app
@@ -30,7 +31,8 @@ npm install antd --save
 (6) 安装less less-loader css-loader style-loader等
 npm install less less-loader css-loader style-loader -D
 (7) 安装ts-loader 并且在webpack.config.js中进行解析配置
-
+(8)  安装axios
+npm install axios
 5.然后删除src下面的registerServiceWorker.js（该文件用于构建pwa应用用的，暂时我们用不了）和 logo.svg文件（不想处理图片文件）和 App.test.js(用于测试用的)。然后在src下建2个文件夹，将src下的App.css、App.js、index.css、index.js分别粘贴进去
 6.进入public文件下，删除favicon.ico和 manifest.json(构建pwa用的）
 7.删除当前目录中的node_modules，重新npm install生成
