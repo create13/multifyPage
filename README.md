@@ -18,13 +18,13 @@ create-react-app 项目名 --scripts-version=react-scripts-ts
 3.根目录下新建webpack.config.js文件 贴入webpack出入口配置 打包多页面文件 以及热更新等
 (1) 安装glob 获取指定文件内容 放入到entry入口文件中
 4.安装所需内容到package.json中 具体安装内容 参照package.json
-(1)安装redux
+(1)安装redux ***
 npm install --save redux
 (2)安装react-redux
 npm install --save react-redux
-(3)安装路由
-npm install --save react-router-dom
-(4) 安装redux-saga
+(3)安装路由 ***
+npm install --save react-router-dom 
+(4) 安装redux-saga ***
 npm install --save redux-saga
 (5) 安装antDesign
 npm install antd --save

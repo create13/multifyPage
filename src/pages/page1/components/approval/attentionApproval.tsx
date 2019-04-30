@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Calendar, Badge } from 'antd';
+import { addList } from '../../store/actionCreators'
+import { connect } from 'react-redux'
 function getListData(value:any) {
   let listData;
   switch (value.date()) {
@@ -59,22 +61,48 @@ function monthCellRender(value:any) {
   ) : null;
 }
 
-export default class AttentionApproval extends Component {
+class AttentionApproval extends Component<any, any> {
     constructor(props:any) {
       super(props)
     
       this.state = {
-         
+         listData: []
       }
     }
-    
+  addList() {
+    const items = {title: 'www'}
+    this.props.addListData(items);
+  }
   render() {
+    // this.setState({
+    //   listData:this.props.listData
+    // })
+    let { listData } = this.props;
     return (
       <div className="attention-approval">
-        {/* <div className="line-left"> */}
-          <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
-        {/* </div> */}
+          {/* <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} /> */}
+          <button onClick={() => this.addList()}>点击增加一条数据</button>
+          {listData.map((items: any, indexs:number) => {
+            return (
+              <div key={indexs}>{items.title}</div>
+            )
+          })}
       </div>
     )
   }
 }
+const mapStateToProps = (state:any) => {
+  console.log(state);
+  return {
+    listData: state.listData
+  }
+}
+const mapDispatchToProps = (dispatch:any) => {
+  return {
+    addListData(todo:any) {
+      const action = addList(todo);
+      dispatch(action)
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(AttentionApproval)
