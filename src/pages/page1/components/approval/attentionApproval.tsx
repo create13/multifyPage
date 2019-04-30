@@ -80,7 +80,7 @@ class AttentionApproval extends Component<any, any> {
     let { listData } = this.props;
     return (
       <div className="attention-approval">
-          {/* <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} /> */}
+          <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
           <button onClick={() => this.addList()}>点击增加一条数据</button>
           {listData.map((items: any, indexs:number) => {
             return (
