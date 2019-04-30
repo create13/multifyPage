@@ -77,6 +77,9 @@ export default class subordinatesApproval extends Component {
         visibleModel: false,
       });
     }
+    hrefGo () {
+      window.location.href = 'https://www.baidu.com/'
+    }
   render() {
     return (
       <div className="subordinates-approval">
@@ -237,6 +240,9 @@ export default class subordinatesApproval extends Component {
       </div>
         <div className="line-second"></div>
         <div className="line-second"></div>
+        </div>
+        <div>
+          <button onClick={() => {this.hrefGo()}}>点击</button>
         </div>
       </div>
     )
