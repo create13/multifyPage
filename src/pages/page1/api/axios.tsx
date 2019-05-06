@@ -1,10 +1,10 @@
 import axios from 'axios'
-const myAxios = function (url: string = '', params:any = {}, type:string = 'GET') {
-    let promise:any;
+const myAxios = function (url: string = '', params: any = {}, type: string = 'GET') {
+    let promise: any;
     return new Promise((resolve, reject) => {
         if (type.toUpperCase() === 'GET') {
             let paramsStr = '';
-            Object.keys(params).forEach((key:any) => {
+            Object.keys(params).forEach((key: any) => {
                 paramsStr += `${key} = ${params[key]}&`
             })
             if (paramsStr !== '') {
@@ -15,9 +15,9 @@ const myAxios = function (url: string = '', params:any = {}, type:string = 'GET'
         } else if (type.toUpperCase() === 'POST') {
             promise = axios.post(url, params);
         }
-        promise.then((res:any) => {
+        promise.then((res: any) => {
             resolve(res);
-        }).catch((err:any) => {
+        }).catch((err: any) => {
             reject(err)
         })
     })

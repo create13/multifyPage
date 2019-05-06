@@ -8,19 +8,19 @@ class boxHeader extends Component {
         current: '',
         personName: '张某某',
         navigatorMenu: [
-            {icons: 'mail', title: '主页'},
-            {icons: 'appstore', title: '审批'},
-            {icons: 'setting', title: '申请'},
-            {icons: 'calendar', title: '驾驶舱'}
+            { icons: 'mail', title: '主页' },
+            { icons: 'appstore', title: '审批' },
+            { icons: 'setting', title: '申请' },
+            { icons: 'calendar', title: '驾驶舱' }
         ]
     }
     handleClick(e: any) {
-    console.log('click ', e);
-    this.setState({
-        current: e.key,
-    });
+        console.log('click ', e);
+        this.setState({
+            current: e.key,
+        });
     }
-    componentDidMount () {
+    componentDidMount() {
         this.setState({
             current: this.state.navigatorMenu[0].icons
         })
@@ -32,11 +32,11 @@ class boxHeader extends Component {
                 <div className="layout-header">
                     <div className="left-content">
                         <Avatar size={64} icon="user" />
-                        <span className="person-info">{personName}</span>     
+                        <span className="person-info">{personName}</span>
                     </div>
-                    <Search placeholder="input search text" onSearch={value => console.log(value)} style={{ width: 200 }}/>
+                    <Search placeholder="input search text" onSearch={value => console.log(value)} style={{ width: 200 }} />
                     {navigatorMenu.map((navigator, nIndex) => (
-                        <Menu onClick={(e) => {this.handleClick(e)}} key={nIndex} selectedKeys={[current]} mode="horizontal">
+                        <Menu onClick={(e) => { this.handleClick(e) }} key={nIndex} selectedKeys={[current]} mode="horizontal">
                             <Menu.Item key={navigator.icons}>
                                 <Icon type={navigator.icons} />
                                 {navigator.title}
@@ -44,7 +44,7 @@ class boxHeader extends Component {
                         </Menu>
 
                     ))}
-                        {/* <Menu onClick={(e) => {this.handleClick(e)}} selectedKeys={[this.state.current]} mode="horizontal">
+                    {/* <Menu onClick={(e) => {this.handleClick(e)}} selectedKeys={[this.state.current]} mode="horizontal">
                             <Menu.Item key="mail">
                                 <Icon type="mail" />Navigation One
                             </Menu.Item>
