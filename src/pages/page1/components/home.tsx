@@ -29,7 +29,7 @@ class WTSHome extends Component {
 							</Content>
 						</Layout>
 					</Layout>
-					{routes.map((route, rIndex) => {
+					{/* {routes.map((route, rIndex) => {
 						if (!route.exact) {
 							return (
 								// <Route key={rIndex} path={route.path} render={(props: any) => (<route.component {...props} routes={route.children}/>)} />
@@ -40,7 +40,7 @@ class WTSHome extends Component {
 								<Route key={rIndex} path={route.path} exact render={(props: any) => (<route.component {...props} />)} />
 							)
 						}
-					})}
+					})} */}
 				</div>
 			</HashRouter>
 		);
