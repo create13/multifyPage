@@ -18,7 +18,8 @@ class BoxContent extends Component {
 						)
 					} else {
 						return (
-							<Route key={index} path={route.path} component={route.component}></Route>
+							<Route key={index} path={route.path} render={(props: any) => (<route.component {...props} routes={route.children}/>)} />
+							// <Route key={index} path={route.path} component={route.component}></Route>
 						)
 					}
 				})}
