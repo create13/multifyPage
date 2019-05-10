@@ -1,4 +1,9 @@
 import axios from 'axios'
+interface axiosType {
+    url: string,
+    params?: any,
+    type?: string
+}
 const myAxios = function (url: string = '', params: any = {}, type: string = 'GET') {
     let promise: any;
     return new Promise((resolve, reject) => {

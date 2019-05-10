@@ -14,26 +14,26 @@ class boxSide extends Component {
             {
                 menuFirst: '审批',
                 menuArray: [
-                    { menuSecond: '我提交的审批' },
-                    { menuSecond: '代办审批' },
-                    { menuSecond: '我关注的审批' },
-                    { menuSecond: '下属的代办审批' },
-                    { menuSecond: '全部审批' },
-                    { menuSecond: '已办审批' }
+                    { menuSecond: '我提交的审批', linkRoute: '/mySubmitApproval' },
+                    { menuSecond: '代办审批', linkRoute: '/anotherApproval' },
+                    { menuSecond: '我关注的审批', linkRoute: '/attentionApproval' },
+                    { menuSecond: '下属的代办审批', linkRoute: '/subordinatesApproval' },
+                    { menuSecond: '全部审批', linkRoute: '/pageJump' },
+                    { menuSecond: '已办审批', linkRoute: '/finishApproval' }
                 ]
             },
             {
                 menuFirst: '技能考核',
                 menuArray: [
-                    { menuSecond: '过岗项目设置' },
-                    { menuSecond: '过岗考核记录管理' }
+                    { menuSecond: '过岗项目设置', linkRoute: '/mySubmitApproval' },
+                    { menuSecond: '过岗考核记录管理', linkRoute: '/mySubmitApproval' }
                 ],
             },
             {
                 menuFirst: '日志',
                 menuArray: [
-                    { menuSecond: '登录日志' },
-                    { menuSecond: '操作日志' }
+                    { menuSecond: '登录日志', linkRoute: '/mySubmitApproval' },
+                    { menuSecond: '操作日志', linkRoute: '/mySubmitApproval' }
                 ]
             }
         ]
@@ -60,7 +60,9 @@ class boxSide extends Component {
                                     {item.menuArray.map((menu, indexs) => {
                                         return (
                                             <Menu.Item key={indexs + 'item'}>
-                                                <Link key={indexs + 1 + 'router'} to={routes[Number(indexs) + 1].path}>{menu.menuSecond}</Link>
+                                                <Link to={menu.linkRoute}>
+                                                    {menu.menuSecond}
+                                                </Link>
                                             </Menu.Item>
                                         )
                                     })}
@@ -68,30 +70,6 @@ class boxSide extends Component {
                             </Menu>
                         )
                     })}
-                    {/* {menuList.map((item, index) => {
-                    return (
-                        <Menu mode="inline" key={index + 'menuList'} openKeys={ openKeys } onOpenChange={this.onOpenChange} style={{ width: 240 }}>
-                            <SubMenu key={index} title={<span><span>{item.menuFirst}</span></span>}>
-                                {item.menuArray.map((menu, indexs) => {
-                                    return (
-                                        <Menu.Item key={indexs + 'item'}>
-                                            {routes.map((route, rIndex) => {
-                                                // console.log(rIndex);
-                                                if (route.path !== '/') {
-                                                    console.log('route', route);
-                                                    console.log(rIndex);
-                                                    return (
-                                                        <Link key={rIndex + 'router'} to={route.path}>{ menu.menuSecond + rIndex }</Link>
-                                                    )
-                                                }
-                                            })}
-                                        </Menu.Item>
-                                    )
-                                })}
-                            </SubMenu>
-                        </Menu>
-                    )
-                })} */}
                 </div>
             </HashRouter>
         );
