@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter, Route, Link } from 'react-router-dom'
+import { HashRouter, Link } from 'react-router-dom'
 // import routes from '../../page1/routes/index'
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
@@ -25,7 +25,7 @@ class boxSide extends Component {
             {
                 menuFirst: '技能考核',
                 menuArray: [
-                    { menuSecond: '过岗项目设置', linkRoute: '/mySubmitApproval' },
+                    { menuSecond: '过岗项目设置', linkRoute: '/redirectProject' },
                     { menuSecond: '过岗考核记录管理', linkRoute: '/mySubmitApproval' }
                 ],
             },

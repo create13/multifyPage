@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, Redirect } from 'react-router-dom'
 export default class finishApproval extends Component<any, any> {
     constructor(props:any) {
         super(props)
-        console.log('finishProps', props);
     }
     state = {
         newsList: [

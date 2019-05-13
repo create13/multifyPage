@@ -22,7 +22,6 @@ const props = {
 	},
 	onChangeUpload(info: any) {
 		if (info.file.status !== 'uploading') {
-			console.log(info.file, info.fileList);
 		}
 		if (info.file.status === 'done') {
 			message.success(`${info.file.name} file uploaded successfully`);
@@ -104,7 +103,6 @@ export default class anotherApproval extends Component {
 		console.log(value);
 	}
 	onChangeTree = (value1: any) => {
-		console.log(value1);
 		this.setState({ value1 });
 	}
 
@@ -112,7 +110,6 @@ export default class anotherApproval extends Component {
 		this.setState({ disabled });
 	}
 	onChangeRadio = (e: any) => {
-		console.log('radio checked', e.target.value);
 		this.setState({
 			value: e.target.value,
 		});

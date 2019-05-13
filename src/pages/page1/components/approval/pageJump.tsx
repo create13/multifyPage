@@ -9,6 +9,7 @@ export default class PageJump extends Component{
       }
     }
     componentDidMount() {
+        // window.location.href="https://www.baidu.com/";
         window.frames.postMessage({ type: "loginOut", name: 111 }, "*")
         WebSocket({name: 'lee', age: 24});
     }

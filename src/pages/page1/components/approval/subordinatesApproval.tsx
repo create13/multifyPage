@@ -6,12 +6,10 @@ import {
 const TabPane = Tabs.TabPane;
 const { Link } = Anchor;
 function confirm(e: any) {
-	console.log(e);
 	message.success('Click on Yes');
 }
 
 function cancel(e: any) {
-	console.log(e);
 	message.error('Click on No');
 }
 

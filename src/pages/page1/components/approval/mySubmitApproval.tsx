@@ -10,7 +10,6 @@ class MySubmitApproval extends Component {
 	}
 	handleButtonClick(e: any) {
 		message.info('Click on left button.');
-		console.log('click left button', e);
 	}
 	onChangeCheck(checkedValues: any) {
 		console.log('checked = ', checkedValues);
@@ -26,7 +25,6 @@ class MySubmitApproval extends Component {
 	}
 	handleMenuClick(e: any) {
 		message.info('Click on menu item.');
-		console.log('click', e);
 	}
 	onShowSizeChange(current: any, pageSize: number) {
 		console.log(current, pageSize);

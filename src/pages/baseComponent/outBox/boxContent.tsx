@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import routes from '../../page1/routes/index'
-// import DefaultHome from '../contentChild/defaultHome'
 import { Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 import '../../page1/static/css/boxContent.less'
 class BoxContent extends Component {
 	constructor(props: object) {
@@ -11,6 +11,7 @@ class BoxContent extends Component {
 	render() {
 		return (
 			<div className="box-content">
+				<div className="square-title">aaa</div>
 				{routes.map((route: any, index: number) => {
 					if (route.exact) {
 						return (
@@ -27,5 +28,10 @@ class BoxContent extends Component {
 		);
 	}
 }
-
-export default BoxContent;
+const mapStateToProps = (state: any) => {
+	console.log(state);
+	return {
+		// listData: state.listData
+	}
+}
+export default connect(mapStateToProps)(BoxContent);
