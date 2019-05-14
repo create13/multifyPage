@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { HashRouter, Link } from 'react-router-dom'
-// import routes from '../../page1/routes/index'
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
+import { connect } from 'react-redux'
+import { addList } from '../../page1/store/actionCreators'
 const SubMenu = Menu.SubMenu;
-class boxSide extends Component {
+class boxSide extends Component<any, any> {
     constructor(props: any) {
         super(props)
     }
@@ -14,26 +15,26 @@ class boxSide extends Component {
             {
                 menuFirst: '审批',
                 menuArray: [
-                    { menuSecond: '我提交的审批', linkRoute: '/mySubmitApproval' },
-                    { menuSecond: '代办审批', linkRoute: '/anotherApproval' },
-                    { menuSecond: '我关注的审批', linkRoute: '/attentionApproval' },
-                    { menuSecond: '下属的代办审批', linkRoute: '/subordinatesApproval' },
-                    { menuSecond: '全部审批', linkRoute: '/pageJump' },
-                    { menuSecond: '已办审批', linkRoute: '/finishApproval' }
+                    { menuSecond: '我提交的审批', linkRoute: '/mySubmitApproval', menukey: '1' },
+                    { menuSecond: '代办审批', linkRoute: '/anotherApproval', menukey: '2' },
+                    { menuSecond: '我关注的审批', linkRoute: '/attentionApproval', menukey: '3' },
+                    { menuSecond: '下属的代办审批', linkRoute: '/subordinatesApproval', menukey: '4' },
+                    { menuSecond: '全部审批', linkRoute: '/pageJump', menukey: '5' },
+                    { menuSecond: '已办审批', linkRoute: '/finishApproval', menukey: '6' }
                 ]
             },
             {
                 menuFirst: '技能考核',
                 menuArray: [
-                    { menuSecond: '过岗项目设置', linkRoute: '/redirectProject' },
-                    { menuSecond: '过岗考核记录管理', linkRoute: '/mySubmitApproval' }
+                    { menuSecond: '过岗项目设置', linkRoute: '/redirectProject', menukey: '7' },
+                    { menuSecond: '过岗考核记录管理', linkRoute: '/testTabs', menukey: '8' }
                 ],
             },
             {
                 menuFirst: '日志',
                 menuArray: [
-                    { menuSecond: '登录日志', linkRoute: '/mySubmitApproval' },
-                    { menuSecond: '操作日志', linkRoute: '/mySubmitApproval' }
+                    { menuSecond: '登录日志', linkRoute: '/mySubmitApproval', menukey: '9' },
+                    { menuSecond: '操作日志', linkRoute: '/mySubmitApproval', menukey: '10' }
                 ]
             }
         ]
@@ -48,6 +49,9 @@ class boxSide extends Component {
             });
         }
     }
+    addMenuList (menu: any) {
+        this.props.addMenu(menu);
+    }
     render() {
         let { menuList, openKeys } = this.state;
         return (
@@ -60,7 +64,7 @@ class boxSide extends Component {
                                     {item.menuArray.map((menu, indexs) => {
                                         return (
                                             <Menu.Item key={indexs + 'item'}>
-                                                <Link to={menu.linkRoute}>
+                                                <Link to={menu.linkRoute} onClick={() => {this.addMenuList(menu)}}>
                                                     {menu.menuSecond}
                                                 </Link>
                                             </Menu.Item>
@@ -75,5 +79,12 @@ class boxSide extends Component {
         );
     }
 }
-
-export default boxSide;
+const mapDispatchToProps = (dispatch: any) => {
+	return {
+        addMenu(data: any) {
+            const action = addList(data);
+            dispatch(action);
+        }
+	}
+}
+export default connect(null, mapDispatchToProps)(boxSide);

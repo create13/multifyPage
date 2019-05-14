@@ -7,6 +7,7 @@ import PageJump from '../components/approval/pageJump'
 import FinishApproval from '../components/approval/finishApproval'
 import NewsApproval from '../components/approval/newsApproval'
 import RedirectProject from '../components/approval/redirectProject'
+import TestTabs from '../components/approval/testTabs'
 let routes = [
     {path: '/', component: DefaultHome, exact: true},
     {path: '/mySubmitApproval', component: MySubmitApproval},
@@ -18,7 +19,7 @@ let routes = [
         // {path: '/finishApproval/newsApproval/:titleId', component: NewsApproval}
     ]},
     {path: '/redirectProject', component: RedirectProject},
-    {path: '/mySubmitApproval', component: MySubmitApproval},
+    {path: '/testTabs', component: TestTabs},
     {path: '/mySubmitApproval', component: MySubmitApproval},
     {path: '/mySubmitApproval', component: MySubmitApproval},
     {path: '/newsApproval', component: NewsApproval}

@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import routes from '../../page1/routes/index'
 import { Route } from 'react-router-dom'
-import { connect } from 'react-redux'
+import TabsToggle from './tabsToggle'
 import '../../page1/static/css/boxContent.less'
 class BoxContent extends Component {
 	constructor(props: object) {
 		super(props)
+		this.state = {
+		}
 	}
-
+	componentDidMount () {
+	}
 	render() {
 		return (
 			<div className="box-content">
-				<div className="square-title">aaa</div>
+				<TabsToggle />
 				{routes.map((route: any, index: number) => {
 					if (route.exact) {
 						return (
@@ -20,7 +23,6 @@ class BoxContent extends Component {
 					} else {
 						return (
 							<Route key={index} path={route.path} render={(props: any) => (<route.component {...props} routes={route.children}/>)} />
-							// <Route key={index} path={route.path} component={route.component}></Route>
 						)
 					}
 				})}
@@ -28,10 +30,4 @@ class BoxContent extends Component {
 		);
 	}
 }
-const mapStateToProps = (state: any) => {
-	console.log(state);
-	return {
-		// listData: state.listData
-	}
-}
-export default connect(mapStateToProps)(BoxContent);
+export default BoxContent;
