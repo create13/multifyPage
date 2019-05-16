@@ -74,9 +74,6 @@ class AttentionApproval extends Component<any, any> {
 		this.props.addListData(items);
 	}
 	render() {
-		// this.setState({
-		//   listData:this.props.listData
-		// })
 		let { listData } = this.props;
 		return (
 			<div className="attention-approval">
@@ -92,7 +89,6 @@ class AttentionApproval extends Component<any, any> {
 	}
 }
 const mapStateToProps = (state: any) => {
-	console.log(state);
 	return {
 		listData: state.listData
 	}

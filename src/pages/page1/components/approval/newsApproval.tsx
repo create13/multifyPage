@@ -9,7 +9,7 @@ export default class newsApproval extends Component<any, any> {
     }
     
   render() {
-    console.log(this.props.match.params.titleId)
+    console.log('titleId', this.props)
     return (
       <div>
           新闻详情页

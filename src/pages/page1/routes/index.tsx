@@ -11,7 +11,7 @@ import TestTabs from '../components/approval/testTabs'
 let routes = [
     {path: '/', component: DefaultHome, exact: true},
     {path: '/mySubmitApproval', component: MySubmitApproval},
-    {path: '/anotherApproval', component: AnotherApproval},
+    {path: '/anotherApproval/:id', component: AnotherApproval},
     {path: '/attentionApproval', component: AttentionApproval},
     {path: '/subordinatesApproval', component: SubordinatesApproval},
     {path: '/pageJump', component: PageJump},
@@ -22,9 +22,6 @@ let routes = [
     {path: '/testTabs', component: TestTabs},
     {path: '/mySubmitApproval', component: MySubmitApproval},
     {path: '/mySubmitApproval', component: MySubmitApproval},
-    {path: '/newsApproval', component: NewsApproval}
-]
-let detailRoutes = [
-    {path: '/mySubmitApproval', component: MySubmitApproval}
+    {path: '/newsApproval/:titleId', component: NewsApproval}
 ]
 export default routes;

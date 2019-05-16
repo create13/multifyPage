@@ -15,7 +15,7 @@ export default class redirectProject extends Component<any, any> {
     render() {
     return (
         <div>
-            {/* <Redirect to='https://www.baidu.com/' /> */}
+            <Redirect to='https://www.baidu.com/' />
         </div>
     )
     }

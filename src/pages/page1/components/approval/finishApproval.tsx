@@ -26,7 +26,7 @@ export default class finishApproval extends Component<any, any> {
                 </div>
                 {this.props.routes.map((route:any, index:any) => {
                     return (
-                    <Route key={index} path={route.path} component={route.component}></Route>
+                        <Route key={index} path={route.path} component={route.component}></Route>
                     )
                 })}
             </div>

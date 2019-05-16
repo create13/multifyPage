@@ -72,7 +72,7 @@ function onChange(contentState: any) {
 function onSelect(suggestion: any) {
 	console.log('onSelect', suggestion);
 }
-export default class anotherApproval extends Component {
+export default class anotherApproval extends Component<any, any> {
 	constructor(props: any) {
 		super(props)
 	}
@@ -122,6 +122,17 @@ export default class anotherApproval extends Component {
 	}
 	onChangeNumber(value: any) {
 		console.log('chvaluenged', value);
+	}
+	shouldComponentUpdate (props: any, state: any):boolean {
+		console.log('id', this.props.match.params.id);
+		if (this.props.match.params.id) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	componentDidMount () {
+		console.log('组件', this.props)
 	}
 	render() {
 		const { likes, dislikes, action } = this.state;
