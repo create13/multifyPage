@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import WebSocket from '../../utils/webSocket'
+import WebSocket from '../../../utils/webSocket'
 export default class PageJump extends Component{
     constructor(props: any) {
       super(props)
