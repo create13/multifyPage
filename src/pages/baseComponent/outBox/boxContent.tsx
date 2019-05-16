@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import routes from '../../page1/routes/index'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import TabsToggle from './tabsToggle'
 import '../../page1/static/css/boxContent.less'
@@ -21,17 +21,25 @@ class BoxContent extends Component<any, any> {
 		return (
 			<div className="box-content">
 				{showPage}
-				{routes.map((route: any, index: number) => {
-				if (route.exact) {
-					return (
-						<Route exact key={index} path={route.path} component={route.component}></Route>
-					)
-				} else {
-					return (
-						<Route key={index} path={route.path} render={(props: any) => (<route.component {...props} routes={route.children}/>)} />
-					)
-				}
-				})}
+				<Switch>
+					{routes.map((route: any, index: number) => {
+					if (route.exact) {
+						return (
+							<Route exact key={index} path={route.path} component={route.component}></Route>
+						)
+					} else {
+						if (!route.path) {
+							return (
+								<Route key={index} component={route.component} />
+							)
+						} else {
+							return (
+								<Route key={index} path={route.path} render={(props: any) => (<route.component {...props} routes={route.children}/>)} />
+							)
+						}
+					}
+					})}
+				</Switch>
 			</div>
 		);
 	}

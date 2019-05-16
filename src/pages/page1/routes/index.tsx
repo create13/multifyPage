@@ -8,6 +8,7 @@ import FinishApproval from '../components/approval/finishApproval'
 import NewsApproval from '../components/approval/newsApproval'
 import RedirectProject from '../components/approval/redirectProject'
 import TestTabs from '../components/approval/testTabs'
+import NoMatch from '../components/redirect/noMatch'
 let routes = [
     {path: '/', component: DefaultHome, exact: true},
     {path: '/mySubmitApproval', component: MySubmitApproval},
@@ -22,6 +23,8 @@ let routes = [
     {path: '/testTabs', component: TestTabs},
     {path: '/mySubmitApproval', component: MySubmitApproval},
     {path: '/mySubmitApproval', component: MySubmitApproval},
-    {path: '/newsApproval/:titleId', component: NewsApproval}
+    {path: '/newsApproval/:titleId', component: NewsApproval},
+    {component: NoMatch}
+
 ]
 export default routes;
