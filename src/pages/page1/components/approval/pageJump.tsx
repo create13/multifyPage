@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import WebSocket from '@/utils/webSocket'
+import WebSocket from '@/utils/webSocket'
 export default class PageJump extends Component{
     constructor(props: any) {
       super(props)
@@ -11,7 +11,7 @@ export default class PageJump extends Component{
     componentDidMount() {
         // window.location.href="https://www.baidu.com/";
         window.frames.postMessage({ type: "loginOut", name: 111 }, "*")
-        // WebSocket({name: 'lee', age: 24});
+        WebSocket({name: 'lee', age: 24});
     }
     render() {
         return (
