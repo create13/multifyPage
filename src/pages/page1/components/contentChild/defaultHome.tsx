@@ -97,7 +97,6 @@ class defaultHome extends Component {
 		this.setState({ disabled });
 	};
 	render() {
-		console.log('default', this.props);
 		const { targetKeys, selectedKeys, disabled } = this.state;
 		return (
 			<div className="default-home">

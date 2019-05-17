@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Calendar, Badge } from 'antd';
-import { addList } from '../../store/actionCreators'
+import { addList } from '@/store/actionCreators'
 import { connect } from 'react-redux'
 function getListData(value: any) {
 	let listData;

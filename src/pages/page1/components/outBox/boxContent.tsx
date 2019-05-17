@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import routes from '../../routes/index'
+import routes from '#/page1/routes/index'
 import { Route } from 'react-router-dom'
-import '../../static/css/boxContent.less'
+import '@/static/css/boxContent.less'
 class BoxContent extends Component {
 	constructor(props: object) {
 		super(props)

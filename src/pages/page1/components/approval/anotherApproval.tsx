@@ -132,7 +132,6 @@ export default class anotherApproval extends Component<any, any> {
 		}
 	}
 	componentDidMount () {
-		console.log('组件', this.props)
 	}
 	render() {
 		const { likes, dislikes, action } = this.state;
