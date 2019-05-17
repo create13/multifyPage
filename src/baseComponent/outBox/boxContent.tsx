@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import routes from '#/page1/routes/index'
+import routes from '@/routes/index'
 import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import TabsToggle from './tabsToggle'
