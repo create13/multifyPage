@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import routes from '../../routes/index'
-// import DefaultHome from '../contentChild/defaultHome'
 import { Route } from 'react-router-dom'
 import '../../static/css/boxContent.less'
 class BoxContent extends Component {

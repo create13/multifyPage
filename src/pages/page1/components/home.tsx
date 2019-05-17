@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { HashRouter} from 'react-router-dom'
 import { Layout } from 'antd';
 import '../static/css/homePage.less'
-import BoxHeader from '../../baseComponent/outBox/boxHeader'
-import BoxSide from '../../baseComponent/outBox/boxSide'
-import BoxContent from '../../baseComponent/outBox/boxContent'
+import BoxHeader from './outBox/boxHeader'
+import BoxSide from './outBox/boxSide'
+import BoxContent from './outBox/boxContent'
 const { Header, Sider, Content, } = Layout;
 
 class WTSHome extends Component {
