@@ -64,14 +64,12 @@ export default class subordinatesApproval extends Component {
 	}
 
 	handleOk = (e: any) => {
-		console.log(e);
 		this.setState({
 			visibleModel: false,
 		});
 	}
 
 	handleCancel = (e: any) => {
-		console.log(e);
 		this.setState({
 			visibleModel: false,
 		});

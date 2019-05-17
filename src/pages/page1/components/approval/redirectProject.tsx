@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom'
 export default class redirectProject extends Component<any, any> {
     constructor(props: any) {
         super(props)
-            console.log('props', props)
         this.state = {
             
         }

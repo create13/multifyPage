@@ -15,7 +15,6 @@ class boxHeader extends Component {
         ]
     }
     handleClick(e: any) {
-        console.log('click ', e);
         this.setState({
             current: e.key,
         });

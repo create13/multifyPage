@@ -53,7 +53,7 @@ const webpackConfig = {
     resolve: {
         extensions: ['.js', '.jsx','.ts','.tsx', '.scss','.json','.css'], //后缀名自动补全
         alias: {
-            'encryption$': path.resolve(__dirname, './utils/encryption.tsx'), // 定义简写形式
+            'encryption$': path.resolve(__dirname, './src/utils/encryption.tsx'), // 定义简写形式
             '@': path.resolve(__dirname, './src'),
             '#': path.resolve(__dirname, './src/page1')
         }
