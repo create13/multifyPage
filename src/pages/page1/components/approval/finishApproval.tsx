@@ -12,14 +12,17 @@ export default class finishApproval extends Component<any, any> {
             {listId: 1004, title: '美向中东部署航母震慑伊朗 或启动对伊新一轮制裁'}
         ]
     }
+    clickBtn () {
+        this.props.history.push({pathname: '/mySubmitApproval', state:{aa: '111'}});
+    }
     render() {
         let {newsList} = this.state;
         return (
             <div className="finish-approval">
                 <div>
+                    <button onClick={() => {this.clickBtn()}}>点击跳转新闻详情页</button>
                     {newsList.map((item:any, index:any) => {
                         return (
-                            // <div key={index} className="news-title"><Link to={`/finishApproval/newsApproval/${item.listId}`}>{item.title}</Link></div>
                             <div key={index} className="news-title"><Link to={`/newsApproval/${item.listId}`}>{item.title}</Link></div>
                         )
                     })}

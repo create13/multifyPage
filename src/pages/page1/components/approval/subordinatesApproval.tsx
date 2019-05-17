@@ -37,7 +37,6 @@ const { TreeNode } = Tree;
 export default class subordinatesApproval extends Component {
 	constructor(props: any) {
 		super(props)
-
 	}
 	state = { visible: false, visibleModel: false };
 	showDrawer = () => {

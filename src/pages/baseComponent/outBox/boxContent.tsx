@@ -4,8 +4,9 @@ import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import TabsToggle from './tabsToggle'
 import '../../page1/static/css/boxContent.less'
-import md5 from '../../utils/encryption'
-console.log('md5', md5.md5Encode('123'));
+import encryption from 'encryption'
+let modules = encryption.base64Encode('12345');
+console.log('modules', modules)
 class BoxContent extends Component<any, any> {
 	constructor(props: object) {
 		super(props)

@@ -6,6 +6,7 @@ class MySubmitApproval extends Component {
 	}
 	constructor(props: any) {
 		super(props)
+		console.log('props', props);
 	}
 	handleButtonClick(e: any) {
 		message.info('Click on left button.');

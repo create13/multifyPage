@@ -15,7 +15,7 @@ class boxSide extends Component<any, any> {
             {
                 menuFirst: '审批',
                 menuArray: [
-                    { menuSecond: '我提交的审批', linkRoute: '/mySubmitApproval/', menukey: '1' },
+                    { menuSecond: '我提交的审批', linkRoute: '/mySubmitApproval', menukey: '1' },
                     { menuSecond: '代办审批', linkRoute: '/anotherApproval', menukey: '2' },
                     { menuSecond: '我关注的审批', linkRoute: '/attentionApproval', menukey: '3' },
                     { menuSecond: '下属的代办审批', linkRoute: '/subordinatesApproval', menukey: '4' },
