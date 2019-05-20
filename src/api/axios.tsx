@@ -1,19 +1,19 @@
 import axios from 'axios'
-const myAxios = function (url: string = '', params: any = {}, type: string = 'GET') {
+const myAxios = function (options:ajaxOption) {
     let promise: any;
     return new Promise((resolve, reject) => {
-        if (type.toUpperCase() === 'GET') {
+        if (options.type.toUpperCase() === 'GET') {
             let paramsStr = '';
-            Object.keys(params).forEach((key: any) => {
-                paramsStr += `${key} = ${params[key]}&`
+            Object.keys(options.params).forEach((key: any) => {
+                paramsStr += `${key} = ${options.params[key]}&`
             })
             if (paramsStr !== '') {
                 paramsStr = paramsStr.substr(0, paramsStr.lastIndexOf('&'));
             }
-            url = `${url}?${paramsStr}`
-            promise = axios.get(url);
-        } else if (type.toUpperCase() === 'POST') {
-            promise = axios.post(url, params);
+            options.url = `${options.url}?${paramsStr}`
+            promise = axios.get(options.url);
+        } else if (options.type.toUpperCase() === 'POST') {
+            promise = axios.post(options.url, options.params);
         }
         promise.then((res: any) => {
             resolve(res);
