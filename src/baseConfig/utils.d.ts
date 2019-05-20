@@ -3,7 +3,7 @@ interface socketLimit {
     age: number
 }
 interface ajaxOption {
-    url: string = '',
-    params: any = {},
-    type: string = 'GET'
+    url: string,
+    params?: any = {},
+    type: string
 }

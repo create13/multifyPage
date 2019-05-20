@@ -20,7 +20,7 @@ class BoxContent extends Component<any, any> {
 		const routerData = <div>
 		</div>
 		const tabRouter = <TabsToggle />
-		const showPage = reduxStatus.length > 0 ? <TabsToggle />: ''
+		const showPage = reduxStatus && reduxStatus.length > 0 ? <TabsToggle />: ''
 		return (
 			<div className="box-content">
 				{showPage}
@@ -49,7 +49,7 @@ class BoxContent extends Component<any, any> {
 }
 const mapStateToProps = (state: any) => {
 	return {
-		reduxStatus: state.listData
+		reduxStatus: state.operationList.listData
 	}
 }
 export default connect(mapStateToProps)(BoxContent);

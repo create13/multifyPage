@@ -1,8 +1,5 @@
-import { ADD_LIST_DATA, REMOVE_LIST_DATA } from './actionTypes'
-import { combineReducers } from 'redux'
-const defaultState = {
-    listData: []
-}
+import { ADD_LIST_DATA, REMOVE_LIST_DATA } from '../actionTypes'
+import defaultState from '../defaultState'
 export default (state: any = defaultState, action: any)=> {
     if (action.type === ADD_LIST_DATA) {
         const newState = JSON.parse(JSON.stringify(state));

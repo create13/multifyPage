@@ -1,2 +1,2 @@
 import myAxios from './axios'
-export const shopList = () => myAxios('api/shop');
+export const shopList = () => myAxios({url: 'api/shop', type: 'get'});

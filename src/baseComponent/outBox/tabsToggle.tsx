@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Tabs } from 'antd';
-// import routes from '../../page1/routes/index'
 import { Link } from 'react-router-dom'
 import {delList} from '@/store/actionCreators'
 const TabPane = Tabs.TabPane;
@@ -84,7 +83,7 @@ class tabsToggle extends Component<any, any> {
 }
 const mapStateToProps = (state: any) => {
 	return {
-		listData: state.listData
+		listData: state.operationList.listData
 	}
 }
 const mapDispatchToProps = (dispatch: any) => {

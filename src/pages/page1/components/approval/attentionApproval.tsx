@@ -90,7 +90,7 @@ class AttentionApproval extends Component<any, any> {
 }
 const mapStateToProps = (state: any) => {
 	return {
-		listData: state.listData
+		listData: state.operationList.listData
 	}
 }
 const mapDispatchToProps = (dispatch: any) => {
