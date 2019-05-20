@@ -33,7 +33,7 @@ class boxSide extends Component<any, any> {
             {
                 menuFirst: '日志',
                 menuArray: [
-                    { menuSecond: '登录日志', linkRoute: '/mySubmitApproval', menukey: '9' },
+                    { menuSecond: '登录日志', linkRoute: '/testPage2', menukey: '9' },
                     { menuSecond: '操作日志', linkRoute: '/mySubmitApproval', menukey: '10' }
                 ]
             }

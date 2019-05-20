@@ -9,6 +9,7 @@ import NewsApproval from '#/page1/components/approval/newsApproval'
 import RedirectProject from '#/page1/components/approval/redirectProject'
 import TestTabs from '#/page1/components/approval/testTabs'
 import NoMatch from '@/baseComponent/redirect/noMatch'
+import TestPage2 from '#/page2/components/testPage2'
 let routes = [
     {path: '/', component: DefaultHome, exact: true},
     {path: '/mySubmitApproval', component: MySubmitApproval},
@@ -21,7 +22,7 @@ let routes = [
     ]},
     {path: '/redirectProject', component: RedirectProject},
     {path: '/testTabs', component: TestTabs},
-    {path: '/mySubmitApproval', component: MySubmitApproval},
+    {path: '/testPage2', component: TestPage2},
     {path: '/mySubmitApproval', component: MySubmitApproval},
     {path: '/newsApproval/:titleId', component: NewsApproval},
     {component: NoMatch}

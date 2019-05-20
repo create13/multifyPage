@@ -31,18 +31,6 @@ class WTSHome extends Component {
 							</Content>
 						</Layout>
 					</Layout>
-					{/* {routes.map((route, rIndex) => {
-						if (!route.exact) {
-							return (
-								// <Route key={rIndex} path={route.path} render={(props: any) => (<route.component {...props} routes={route.children}/>)} />
-								<Route key={rIndex} path={route.path} exact render={(props: any) => (<route.component {...props} />)} />
-							)
-						} else {
-							return (
-								<Route key={rIndex} path={route.path} exact render={(props: any) => (<route.component {...props} />)} />
-							)
-						}
-					})} */}
 				</div>
 			</HashRouter>
 		);
