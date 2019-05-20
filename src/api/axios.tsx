@@ -15,6 +15,9 @@ const myAxios = function (options:ajaxOption) {
         } else if (options.type.toUpperCase() === 'POST') {
             promise = axios.post(options.url, options.params);
         }
+        if (options.loading) {
+            
+        }
         promise.then((res: any) => {
             resolve(res);
         }).catch((err: any) => {

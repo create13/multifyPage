@@ -5,5 +5,6 @@ interface socketLimit {
 interface ajaxOption {
     url: string,
     params?: any = {},
-    type: string
+    type: string,
+    loading: boolean
 }
