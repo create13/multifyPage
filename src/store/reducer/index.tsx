@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import operationList from './operationList';
-import editList from './editList'
+import globalPromp from './globalPromp'
 const rootReducer = combineReducers({
     operationList,
-    editList
+    globalPromp
 });
 export default rootReducer;

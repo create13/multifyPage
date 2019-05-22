@@ -1,4 +1,5 @@
 const defaultState = {
-    listData: []
+    listData: [],
+    loadingStatus: true
 }
 export default defaultState

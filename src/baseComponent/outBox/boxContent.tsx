@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
-import routes from '@/routes/index'
 import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import TabsToggle from './tabsToggle'
-import '@/static/css/boxContent.less'
+import '@/static/css/boxContent.scss'
 import encryption from 'encryption'
 let modules = encryption.base64Encode('12345');
-console.log('modules', modules)
 class BoxContent extends Component<any, any> {
 	constructor(props: object) {
 		super(props)
 		this.state = {
 		}
 	}
-	componentDidMount () {
-	}
 	render() {
-		let {reduxStatus} = this.props;
+		let {reduxStatus, routes} = this.props;
 		const routerData = <div>
 		</div>
 		const tabRouter = <TabsToggle />

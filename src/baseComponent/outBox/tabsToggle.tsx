@@ -11,8 +11,7 @@ class tabsToggle extends Component<any, any> {
 		super(props)
 		this.state = {
 			activeKey: null,
-			listData: props.listData,
-			tabLink: true
+			listData: props.listData
 		}
 		this.newTabIndex = 0;
 		this.add = this.add.bind(this);
@@ -57,7 +56,7 @@ class tabsToggle extends Component<any, any> {
 		nextState.listData = nextProps.listData;
 	}
 	render() {
-		let { listData, activeKey, tabLink } = this.state;
+		let { listData, activeKey } = this.state;
 		let tabsData = null;
 		if (listData && listData.length > 0) {
 			tabsData = (
@@ -65,7 +64,7 @@ class tabsToggle extends Component<any, any> {
 					<Tabs hideAdd onChange={this.onChange} activeKey={activeKey ? activeKey :listData[listData.length - 1].menukey} type="editable-card" className="title-menu" onEdit={this.onEdit}>
 						{listData.map((list: any, lindex: number) => {
 							return (
-								<TabPane key={list.menukey} tab={<Link to={`${list.linkRoute}/111`}>{list.menuSecond}</Link>}></TabPane>
+								<TabPane key={list.menukey} tab={<Link to={`${list.linkRoute}`}>{list.menuSecond}</Link>}></TabPane>
 							)
 						})}
 					</Tabs>

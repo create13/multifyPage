@@ -35,12 +35,17 @@ const webpackConfig = {
                 ]
             },
             {
-                test: /\.(scss|sass|css)$/,
-                loader: ExtractTextPlugin.extract({fallback: "style-loader", use: 'css-loader'}),
+                test: /\.(scss|sass|css|less)$/,
+                loaders:['style-loader','css-loader','sass-loader']
             },
             {
-                test: /\.less?$/,
-                use:[ 'style-loader','css-loader','less-loader']
+                test: /\.(png|jpe?g|gif|svg)$/, 
+                loader: 'url-loader',
+                options: {
+                  limit: 50000,
+                  outputPath: 'img/'
+        
+                }
             },
             {
                 test: /\.tsx?$/,

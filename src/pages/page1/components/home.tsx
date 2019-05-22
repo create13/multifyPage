@@ -1,52 +1,40 @@
 import React, { Component } from 'react';
-import { HashRouter} from 'react-router-dom'
-import { Layout } from 'antd';
-import '@/static/css/homePage.less'
-import BoxHeader from '@/baseComponent/outBox/boxHeader'
-import BoxSide from '@/baseComponent/outBox/boxSide'
-import BoxContent from '@/baseComponent/outBox/boxContent'
-const { Header, Sider, Content, } = Layout;
+import { HashRouter, Route, Switch  } from 'react-router-dom'
+import routes from '../routes/index'
+import '@/static/css/homePage.scss'
 
-class WTSHome extends Component {
+class WTSHome extends Component<any, any> {
 	constructor(props: any) {
 		super(props)
+		this.state = {
+		}
 	}
 	render() {
-		let a = '123adwwse';
-		let b = a.match(/[1-9]/gi);
-		console.log('正则表达式', b);
 		return (
 			<HashRouter>
 				<div className="home-page">
-					<Layout>
-						<Header>
-							<BoxHeader />
-						</Header>
-						<Layout>
-							<Sider>
-								<BoxSide />
-							</Sider>
-							<Content>
-								<BoxContent />
-							</Content>
-						</Layout>
-					</Layout>
-					{/* {routes.map((route, rIndex) => {
-						if (!route.exact) {
+					<Switch>
+						{routes.map((route: any, index: number) => {
+						if (route.exact) {
 							return (
-								// <Route key={rIndex} path={route.path} render={(props: any) => (<route.component {...props} routes={route.children}/>)} />
-								<Route key={rIndex} path={route.path} exact render={(props: any) => (<route.component {...props} />)} />
+								<Route key={index} path={route.path} exact render={(props: any) => (<route.component {...props} routes={route.children}/>)} />
 							)
 						} else {
-							return (
-								<Route key={rIndex} path={route.path} exact render={(props: any) => (<route.component {...props} />)} />
-							)
+							if (!route.path) {
+								return (
+									<Route key={index} component={route.component} />
+								)
+							} else {
+								return (
+									<Route key={index} path={route.path} render={(props: any) => (<route.component {...props} routes={route.children}/>)} />
+								)
+							}
 						}
-					})} */}
+						})}
+					</Switch>
 				</div>
 			</HashRouter>
 		);
 	}
 }
-
 export default WTSHome;

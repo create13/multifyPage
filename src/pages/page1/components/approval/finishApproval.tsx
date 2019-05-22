@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Link, Redirect } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 export default class finishApproval extends Component<any, any> {
     constructor(props:any) {
         super(props)
@@ -13,9 +13,10 @@ export default class finishApproval extends Component<any, any> {
         ]
     }
     clickBtn () {
-        this.props.history.push({pathname: '/mySubmitApproval', state:{aa: '111'}});
+        this.props.history.push({pathname: '/main/mySubmitApproval', state:{aa: '111'}});
     }
     render() {
+        console.log('this.props.routes finish', this.props.routes)
         let {newsList} = this.state;
         return (
             <div className="finish-approval">
@@ -23,15 +24,10 @@ export default class finishApproval extends Component<any, any> {
                     <button onClick={() => {this.clickBtn()}}>点击跳转新闻详情页</button>
                     {newsList.map((item:any, index:any) => {
                         return (
-                            <div key={index} className="news-title"><Link to={`/newsApproval/${item.listId}`}>{item.title}</Link></div>
+                            <div key={index} className="news-title"><Link to={`/main/newsApproval/${item.listId}`}>{item.title}</Link></div>
                         )
                     })}
                 </div>
-                {this.props.routes.map((route:any, index:any) => {
-                    return (
-                        <Route key={index} path={route.path} component={route.component}></Route>
-                    )
-                })}
             </div>
         )
     }

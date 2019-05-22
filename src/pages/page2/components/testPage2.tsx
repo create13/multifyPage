@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { editList } from '@/store/actionCreators';
-class TestPage2 extends Component<any> {
+class TestPage2 extends Component<any, any> {
     constructor(props: any) {
       super(props)
     
@@ -9,24 +9,23 @@ class TestPage2 extends Component<any> {
       }
     }
   editLast () {
-	  console.log('this.props', this.props);
     	this.props.editLastData('test123');
   }
   render() {
     return (
       <div>
         testPage2
-		<div>{this.props.editModule}</div>
-        <div>
-			<button onClick={() => this.editLast()}>点击修改最后一个标签内容</button>
-		</div>
+        <div>{this.props.editModule}</div>
+            <div>
+          <button onClick={() => this.editLast()}>点击修改最后一个标签内容</button>
+        </div>
       </div>
     )
   }
 }
 const mapStateToProps = (state: any) => {
 	return {
-		editModule: state.editList.listData
+		editModule: state.operationList.listData
 	}
 }
 const mapDispatchToProps = (dispatch: any) => {

@@ -9,7 +9,7 @@ export default class redirectProject extends Component<any, any> {
     }
     
     componentDidMount () {
-        this.props.history.push('/finishApproval');
+        this.props.history.push('/main/finishApproval');
     }
     render() {
     return (

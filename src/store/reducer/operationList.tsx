@@ -1,4 +1,4 @@
-import { ADD_LIST_DATA, REMOVE_LIST_DATA } from '../actionTypes'
+import { ADD_LIST_DATA, REMOVE_LIST_DATA, EDIT_LIST_DATA } from '../actionTypes'
 import defaultState from '../defaultState'
 export default (state: any = defaultState, action: any)=> {
     if (action.type === ADD_LIST_DATA) {
@@ -22,5 +22,11 @@ export default (state: any = defaultState, action: any)=> {
         })
         return newState;
     }
+    if (action.type === EDIT_LIST_DATA) {
+        const newState = JSON.parse(JSON.stringify(state));
+        newState.listData.push(action.menu);
+        return newState;
+    }
+    
     return state;
 }
