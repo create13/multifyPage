@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import TabsToggle from './tabsToggle'
 import '@/static/css/boxContent.scss'
 import encryption from 'encryption'
+import OuterContent from './outerContent'
 let modules = encryption.base64Encode('12345');
 class BoxContent extends Component<any, any> {
 	constructor(props: object) {
@@ -13,32 +14,31 @@ class BoxContent extends Component<any, any> {
 	}
 	render() {
 		let {reduxStatus, routes} = this.props;
-		const routerData = <div>
-		</div>
-		const tabRouter = <TabsToggle />
 		const showPage = reduxStatus && reduxStatus.length > 0 ? <TabsToggle />: ''
 		return (
 			<div className="box-content">
 				{showPage}
-				<Switch>
-					{routes.map((route: any, index: number) => {
-					if (route.exact) {
-						return (
-							<Route exact key={index} path={route.path} component={route.component}></Route>
-						)
-					} else {
-						if (!route.path) {
+				{/* <OuterContent> */}
+					<Switch>
+						{routes.map((route: any, index: number) => {
+						if (route.exact) {
 							return (
-								<Route key={index} component={route.component} />
+								<Route exact key={index} path={route.path} component={route.component}></Route>
 							)
 						} else {
-							return (
-								<Route key={index} path={route.path} render={(props: any) => (<route.component {...props} routes={route.children}/>)} />
-							)
+							if (!route.path) {
+								return (
+									<Route key={index} component={route.component} />
+								)
+							} else {
+								return (
+									<Route key={index} path={route.path} render={(props: any) => (<route.component {...props} routes={route.children}/>)} />
+								)
+							}
 						}
-					}
-					})}
-				</Switch>
+						})}
+					</Switch>
+				{/* </OuterContent> */}
 			</div>
 		);
 	}

@@ -20,6 +20,7 @@ class tabsToggle extends Component<any, any> {
 		this.onChange = this.onChange.bind(this);
 	}
 	onChange (activeKey: string) {
+		console.log('activeKey', activeKey)
 		this.setState({activeKey});
 	};
 	onEdit (targetKey: any, action: any) {
