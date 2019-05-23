@@ -1,6 +1,6 @@
 interface socketLimit {
-    name: string,
-    age: number
+    url: string,
+    port: string
 }
 interface ajaxOption {
     url: string,
