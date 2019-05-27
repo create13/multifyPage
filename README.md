@@ -10,6 +10,16 @@
 6.ts
 7.less
 8.axios
+```javascript
+flow
+st=>start: Start
+op=>operation: Your Operation
+cond=>condition: Yes or No?
+e=>end
+st->op->cond
+cond(yes)->e
+cond(no)->op
+```
 ## 搭建过程 具体参照https://blog.csdn.net/qq_38111015/article/details/89252606
 1.安装脚手架
 npm install -g create-react-app

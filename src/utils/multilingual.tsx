@@ -1,12 +1,13 @@
-const fs = require('fs'); // 载入fs模块
-const language = () => {
-    fs.readFile('./language/en_US.json', function(err: any, data: any) {
-        // 读取文件失败/错误
-        if (err) {
-            throw err;
-        }
-        // 读取文件成功
-        console.log('data读取成功', data);
-    });
+import {language} from '@/api/index'
+const mulLanguage = (fileName: string) => {
+    language({
+        serviceName: 'wts',
+        companyCode: 10001,
+        lanType: fileName
+    }).then((res: any) => {
+        console.log('res', res)
+    }).catch((err: any) => {
+        console.log('err', err)
+    })
 }
-export default language;
+export default mulLanguage;

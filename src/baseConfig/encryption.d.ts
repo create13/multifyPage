@@ -10,3 +10,7 @@ declare module 'qs' {
     const qs: any;
     export default qs;
 }
+declare module 'fs' {
+    const fs: any;
+    export default fs;
+}

@@ -1,9 +1,9 @@
-import { EDIT_LIST_DATA } from '../actionTypes'
+import { LOADING_STATUS } from '../actionTypes'
 import defaultState from '../defaultState'
 export default (state: any = defaultState, action: any) => {
-    if (action.type === EDIT_LIST_DATA) {
+    if (action.type === LOADING_STATUS) {
         const newState = JSON.parse(JSON.stringify(state));
-        newState.listData.push(action.menu);
+        newState.loadingStatus = action.todos
         return newState;
     }
     return state;

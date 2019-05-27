@@ -1,4 +1,4 @@
-import { put, takeEvery } from 'redux-saga/effects'
+import { takeEvery } from 'redux-saga/effects'
 import { REQ_LIST_DATA, REQ_REMOVE_DATA, REQ_EDIT_DATA, REQ_LOADING } from '../actionTypes'
 import sagaMenu from './sagaMenu' // 菜单栏
 import globalPromp from './globalPromp' // 全局配置

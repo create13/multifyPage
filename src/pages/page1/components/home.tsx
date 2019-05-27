@@ -9,6 +9,9 @@ class WTSHome extends Component<any, any> {
 		this.state = {
 		}
 	}
+	componentWillUnmount () {
+		console.log('home un', 'home un');
+	}
 	render() {
 		return (
 			<HashRouter>
