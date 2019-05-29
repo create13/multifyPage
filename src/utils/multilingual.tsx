@@ -1,4 +1,4 @@
-import {language} from '@/api/index'
+import {language} from '@/utils/api/index'
 import store from '@/store'
 import { lanStorage } from '@/store/actionCreators'
 const mulLanguage = (fileName: string) => {
@@ -7,7 +7,6 @@ const mulLanguage = (fileName: string) => {
         companyCode: 10001,
         lanType: fileName
     }).then((res: any) => {
-        console.log('res', res.data.entityItems);
         if (res.data.entityItems.length > 0) {
             const action = lanStorage(res.data.entityItems);
             store.dispatch(action);

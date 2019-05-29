@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import WebSocket from '@/utils/webSocket'
-import { blueData, addData } from '@/api/index'
+import { blueData, addData } from '@/utils/api/index'
 import { connect } from 'react-redux'
 import multilingual from '@/utils/multilingual'
 class PageJump extends Component<any, any> {
