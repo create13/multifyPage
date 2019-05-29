@@ -3,6 +3,7 @@ import WebSocket from 'webSocket'
 import { blueData, addData } from 'myAxios'
 import { connect } from 'react-redux'
 import mulLan from 'multilingual';
+import { addList } from '@/store/actionCreators'
 class PageJump extends Component<any, any> {
     constructor(props: any) {
       super(props)
@@ -23,10 +24,14 @@ class PageJump extends Component<any, any> {
     changeLanguage () {
         mulLan('en_US');
     }
+    addTab () {
+        this.props.addList({ menuSecond: '我提交的审批', linkRoute: '/main/mySubmitApproval', menukey: '1' });
+    }
     render() {
         return (
             <div className="page-jump">
                 <button onClick={() => {this.changeLanguage()}}>切换语言</button>
+                <button onClick={() => {this.addTab()}}>点击添加</button>
                 {/* <iframe src="http://192.168.3.211/" id="iframe" className="iframe-content"></iframe> */}
             </div>
         )
@@ -37,4 +42,12 @@ const mapStateToProps = (state: any) => {
         dataStatus: state.globalPromp.lanStorage
 	}
 }
-export default connect(mapStateToProps, null)(PageJump);
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        addList (tabs: any) {
+            const action = addList(tabs);
+            dispatch(action);
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(PageJump);

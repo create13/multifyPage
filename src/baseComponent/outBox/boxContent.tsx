@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import TabsToggle from './tabsToggle'
 import '@/static/css/boxContent.scss'
 import encryption from 'encryption'
-import OuterContent from './outerContent'
 let modules = encryption.base64Encode('12345');
 class BoxContent extends Component<any, any> {
 	constructor(props: object) {
@@ -18,7 +17,6 @@ class BoxContent extends Component<any, any> {
 		return (
 			<div className="box-content">
 				{showPage}
-				{/* <OuterContent> */}
 					<Switch>
 						{routes.map((route: any, index: number) => {
 						if (route.exact) {
@@ -38,7 +36,6 @@ class BoxContent extends Component<any, any> {
 						}
 						})}
 					</Switch>
-				{/* </OuterContent> */}
 			</div>
 		);
 	}
