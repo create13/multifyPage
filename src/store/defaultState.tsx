@@ -1,5 +1,8 @@
-const defaultState = {
+const globalState = {
     listData: [],
-    maskStatus: false
+    maskStatus: false,
+    lanStorage: []
 }
-export default defaultState
+export default {
+    globalState
+}

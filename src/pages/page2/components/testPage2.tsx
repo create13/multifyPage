@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { editList } from '@/store/actionCreators';
-class TestPage2 extends Component<any, any> {
+export default class TestPage2 extends Component<any, any> {
     constructor(props: any) {
       super(props)
     
@@ -23,17 +21,3 @@ class TestPage2 extends Component<any, any> {
     )
   }
 }
-const mapStateToProps = (state: any) => {
-	return {
-		editModule: state.operationList.listData
-	}
-}
-const mapDispatchToProps = (dispatch: any) => {
-	return {
-		editLastData (data: string) {
-			const action = editList(data)
-			dispatch(action);
-		}
-	}
-}
-export default connect(mapStateToProps, mapDispatchToProps)(TestPage2);

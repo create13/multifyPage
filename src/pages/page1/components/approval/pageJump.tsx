@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 // import WebSocket from '@/utils/webSocket'
 import { blueData, addData } from '@/api/index'
+import { connect } from 'react-redux'
 import multilingual from '@/utils/multilingual'
-export default class PageJump extends Component<any, any> {
+class PageJump extends Component<any, any> {
     constructor(props: any) {
       super(props)
     
@@ -32,3 +33,9 @@ export default class PageJump extends Component<any, any> {
         )
     }
 }
+const mapStateToProps = (state: any) => {
+	return {
+        dataStatus: state.globalPromp.lanStorage
+	}
+}
+export default connect(mapStateToProps, null)(PageJump);
