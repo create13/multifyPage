@@ -1,5 +1,5 @@
 const defaultState = {
     listData: [],
-    loadingStatus: false
+    maskStatus: false
 }
 export default defaultState

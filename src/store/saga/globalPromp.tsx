@@ -1,11 +1,10 @@
 import { put } from 'redux-saga/effects'
 import { LOADING_STATUS } from '../actionTypes'
 function* changeLoading(action: any) {
-    console.log('sagaLoding', 'sagaLoding');
-    const todos = action.todos
+    const status = action.status
     yield put({
         type: LOADING_STATUS,
-        todos
+        status
     })
 }
 export default {

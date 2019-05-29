@@ -1,13 +1,13 @@
 import axios from 'axios'
 import qs from 'qs'
-// import React from 'react'
-// import Loading from '@/baseComponent/outBox/loading'
+import store from '@/store/index'
+import { changeLoading } from '@/store/actionCreators'
 const myAxios = function (options:ajaxOption) {
     let promise: any;
     if (options.loading) {
+        const action = changeLoading(true);
+        store.dispatch(action);
     }
-    const loading = document.getElementById('loadingStatus');
-    // console.log('loadings', loading);
     return new Promise((resolve, reject) => {
         if (options.type.toUpperCase() === 'GET') {
             let paramsStr = '';
@@ -50,6 +50,8 @@ const myAxios = function (options:ajaxOption) {
         });
         promise.then((res: any) => {
             resolve(res);
+            const action = changeLoading(false);
+            store.dispatch(action);
         }).catch((err: any) => {
             reject(err)
         })

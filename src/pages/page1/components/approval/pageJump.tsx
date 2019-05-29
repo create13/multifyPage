@@ -2,11 +2,7 @@ import React, { Component } from 'react'
 // import WebSocket from '@/utils/webSocket'
 import { blueData, addData } from '@/api/index'
 import multilingual from '@/utils/multilingual'
-import {changeLoading} from '@/store/actionCreators'
-import store from '@/store/index'
-// console.log('changeLoading', changeLoading);
-// console.log('store', store);
-export default class PageJump extends Component{
+export default class PageJump extends Component<any, any> {
     constructor(props: any) {
       super(props)
     
@@ -14,9 +10,6 @@ export default class PageJump extends Component{
          
       }
     }
-    componentWillUnmount () {
-        console.log('componentWillUnmount');
-      }
     componentDidMount() {
         // window.location.href="https://www.baidu.com/";
         window.frames.postMessage({ type: "loginOut", name: 111 }, "*")
@@ -28,9 +21,7 @@ export default class PageJump extends Component{
         })
     }
     changeLanguage () {
-        // multilingual('en_US');
-        const action = changeLoading(true);
-        store.dispatch(action);
+        multilingual('en_US');
     }
     render() {
         return (

@@ -10,7 +10,6 @@ class WTSHome extends Component<any, any> {
 		}
 	}
 	componentWillUnmount () {
-		console.log('home un', 'home un');
 	}
 	render() {
 		return (

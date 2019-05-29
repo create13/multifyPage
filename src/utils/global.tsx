@@ -1,5 +1,5 @@
 const addGlobal = {
-    loadingStatus: false
+    maskStatus: false
 };
 const global = Object.assign(window, addGlobal);
 console.log('global', global);
