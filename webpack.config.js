@@ -58,7 +58,15 @@ const webpackConfig = {
     resolve: {
         extensions: ['.js', '.jsx','.ts','.tsx', '.scss','.json','.css'], //后缀名自动补全
         alias: {
-            'encryption$': path.resolve(__dirname, './src/utils/encryption.tsx'), // 定义简写形式
+            'encryption$': path.resolve(__dirname, './src/utils/encryption.ts'), // 定义简写形式
+            'contextmenu$': path.resolve(__dirname, './src/utils/contextmenu.tsx'), // 定义简写形式
+            'drag$': path.resolve(__dirname, './src/utils/drag.ts'), // 定义简写形式
+            'format$': path.resolve(__dirname, './src/utils/format.ts'), // 定义简写形式
+            'global$': path.resolve(__dirname, './src/utils/global.ts'), // 定义简写形式
+            'multilingual$': path.resolve(__dirname, './src/utils/multilingual.ts'), // 定义简写形式
+            'webSocket$': path.resolve(__dirname, './src/utils/webSocket.ts'), // 定义简写形式
+            'utils$': path.resolve(__dirname, './src/utils/utils.tsx'), // 定义简写形式
+            'myAxios$': path.resolve(__dirname, './src/utils/api/index.ts'), // 定义简写形式
             '@': path.resolve(__dirname, './src'),
             '#': path.resolve(__dirname, './src/pages')
         }

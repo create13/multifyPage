@@ -3,8 +3,6 @@ import { HashRouter, Link } from 'react-router-dom'
 import { Menu } from 'antd';
 import { connect } from 'react-redux'
 import { addList } from '@/store/actionCreators'
-// import global from '@/utils/global'
-// console.log(global)
 const SubMenu = Menu.SubMenu;
 class boxSide extends Component<any, any> {
     constructor(props: any) {

@@ -182,3 +182,23 @@ interface dragOptions {
      */
     complete?: Function
 }
+/**
+ * @params url 请求地址
+ * @params port 端口号
+ */
+interface socketLimit {
+    url: string,
+    port: string
+}
+/**
+ * @params url 请求地址
+ * @params params 传参对象
+ * @params type 传参方式
+ * @params loading 请求过程中是否展示loading状态
+ */
+interface ajaxOption {
+    url: string,
+    params?: any = {},
+    type: string,
+    loading: boolean
+}

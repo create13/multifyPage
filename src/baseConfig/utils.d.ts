@@ -1,13 +1,3 @@
-interface socketLimit {
-    url: string,
-    port: string
-}
-interface ajaxOption {
-    url: string,
-    params?: any = {},
-    type: string,
-    loading: boolean
-}
 declare module 'utils' {
     /**
      * 将input列表数据转换成Json格式

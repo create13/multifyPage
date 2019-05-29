@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-// import WebSocket from '@/utils/webSocket'
-import { blueData, addData } from '@/utils/api/index'
+import WebSocket from 'webSocket'
+import { blueData, addData } from 'myAxios'
 import { connect } from 'react-redux'
-import multilingual from '@/utils/multilingual'
+import mulLan from 'multilingual';
 class PageJump extends Component<any, any> {
     constructor(props: any) {
       super(props)
@@ -14,15 +14,14 @@ class PageJump extends Component<any, any> {
     componentDidMount() {
         // window.location.href="https://www.baidu.com/";
         window.frames.postMessage({ type: "loginOut", name: 111 }, "*")
-        // WebSocket({url: 'localhost', port: '8080'});
+        WebSocket({url: 'localhost', port: '8080'});
         blueData({name:'lee'}).then((res: any) => {
         })
         addData().then((w: any) => {
-
         })
     }
     changeLanguage () {
-        multilingual('en_US');
+        mulLan('en_US');
     }
     render() {
         return (
