@@ -15,7 +15,7 @@ class PageJump extends Component<any, any> {
     componentDidMount() {
         // window.location.href="https://www.baidu.com/";
         window.frames.postMessage({ type: "loginOut", name: 111 }, "*")
-        WebSocket({url: 'localhost', port: '8080'});
+        // WebSocket({url: 'localhost', port: '8080'});
         blueData({name:'lee'}).then((res: any) => {
         })
         addData().then((w: any) => {
@@ -26,6 +26,7 @@ class PageJump extends Component<any, any> {
     }
     addTab () {
         this.props.addList({ menuSecond: '我提交的审批', linkRoute: '/main/mySubmitApproval', menukey: '1' });
+        this.props.history.push('/main/mySubmitApproval');
     }
     render() {
         return (

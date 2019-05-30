@@ -35,7 +35,7 @@ const webpackConfig = {
                 ]
             },
             {
-                test: /\.(scss|sass|css|less)$/,
+                test: /\.(scss|sass|css)$/,
                 loaders:['style-loader','css-loader','sass-loader']
             },
             {
@@ -44,7 +44,6 @@ const webpackConfig = {
                 options: {
                   limit: 50000,
                   outputPath: 'img/'
-        
                 }
             },
             {
@@ -56,7 +55,7 @@ const webpackConfig = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx','.ts','.tsx', '.scss','.json','.css'], //后缀名自动补全
+        extensions: ['.js', '.jsx','.ts','.tsx', '.scss','.json','.css', 'less'], //后缀名自动补全
         alias: {
             'encryption$': path.resolve(__dirname, './src/utils/encryption.ts'), // 定义简写形式
             'contextmenu$': path.resolve(__dirname, './src/utils/contextmenu.tsx'), // 定义简写形式

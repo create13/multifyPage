@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter, Link } from 'react-router-dom'
+import { HashRouter, Link, BrowserRouter } from 'react-router-dom'
 import { Menu } from 'antd';
 import { connect } from 'react-redux'
 import { addList } from '@/store/actionCreators'
