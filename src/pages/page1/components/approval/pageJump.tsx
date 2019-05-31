@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import WebSocket from 'webSocket'
+// import WebSocket from 'webSocket'
 import { blueData, addData } from 'myAxios'
 import { connect } from 'react-redux'
 import mulLan from 'multilingual';

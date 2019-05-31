@@ -1,7 +1,8 @@
 const globalState = {
     listData: [],
     maskStatus: false,
-    lanStorage: []
+    lanStorage: [],
+    chooseMenu: {}
 }
 export default {
     globalState

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { HashRouter, Link, BrowserRouter } from 'react-router-dom'
 import { Menu } from 'antd';
 import { connect } from 'react-redux'
-import { addList } from '@/store/actionCreators'
+import { addList, leftMenu } from '@/store/actionCreators'
 const SubMenu = Menu.SubMenu;
 class boxSide extends Component<any, any> {
     constructor(props: any) {
@@ -51,6 +51,7 @@ class boxSide extends Component<any, any> {
     }
     addMenuList (menu: any) {
         this.props.addMenu(menu);
+        this.props.chooseMenu(menu);
     }
     render() {
         let { menuList, openKeys } = this.state;
@@ -83,6 +84,10 @@ const mapDispatchToProps = (dispatch: any) => {
 	return {
         addMenu(data: any) {
             const action = addList(data);
+            dispatch(action);
+        },
+        chooseMenu(data: any) {
+            const action = leftMenu(data);
             dispatch(action);
         }
 	}

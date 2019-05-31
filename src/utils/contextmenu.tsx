@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import format from 'format';
 import global from 'global';
+import store from '@/store'
+import { delRight } from '@/store/actionCreators'
 var options: any = {
     /**
      * 右键菜单的样式名称
@@ -96,6 +98,14 @@ class Init extends React.Component<ContextmenuOptions, any> {
         document.body.removeChild(options.container);
     }
 
+    OperateLabel (label: string, key: string) {
+        if (label === '关闭到右侧') {
+            console.log('key', key)
+            const action = delRight(key);
+            store.dispatch(action);
+        }
+    }
+
     renderNode(data: any): any {
         return (
             <ul>
@@ -114,6 +124,7 @@ class Init extends React.Component<ContextmenuOptions, any> {
     }
 
     renderHTML(data: any): any {
+        console.log('data', data);
         return (
             <div>
                 <div className={options.mask} onClick={this.callbackFun.bind(this, this.defaults.callback)}>
@@ -164,7 +175,7 @@ class Init extends React.Component<ContextmenuOptions, any> {
             <dd className={state ? "invalid" : ""} key={sub.code.toString()}>
                 <a href="javascript:;" onClick={this.callbackFun.bind(this, sub.complete)}>
                     <i>{sub.icon}</i>
-                    <span>{sub.label}</span>
+                    <span onClick={() => {this.OperateLabel(sub.label, sub.key)}}>{sub.label}</span>
                     {hasSub > 0 ? <global.IconFont type={options.arrow} /> : null}
                 </a>
                 {hasSub > 0 ? this.renderNode({ items: sub.items, json: options.menu.json }) : null}

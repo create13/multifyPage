@@ -16,7 +16,6 @@ export default class finishApproval extends Component<any, any> {
         this.props.history.push({pathname: '/main/mySubmitApproval', state:{aa: '111'}});
     }
     render() {
-        console.log('this.props.routes finish', this.props.routes)
         let {newsList} = this.state;
         return (
             <div className="finish-approval">
