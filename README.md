@@ -1,6 +1,6 @@
 ## 编译流程
-1.npm run start 开发版运行 访问链接http://localhost:8082/page1/page1.html
-2.npm run build 生产版打包
+## 1.npm run start 开发版运行 访问链接http://localhost:8082/page1/page1.html
+## 2.npm run build 生产版打包
 ## 技术栈
 1.react
 2.redux
