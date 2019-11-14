@@ -15,7 +15,7 @@ const webpackConfig = {
     //设置开发者工具的端口号,不设置则默认为8080端口
     devServer: {
         inline: true,
-        port: 8082,
+        port: 80,
         compress: true,
         historyApiFallback: true
     },
@@ -42,7 +42,7 @@ const webpackConfig = {
                 test: /\.(png|jpe?g|gif|svg)$/, 
                 loader: 'url-loader',
                 options: {
-                  limit: 50000,
+                  limit: 1000,
                   outputPath: 'img/'
                 }
             },
@@ -75,9 +75,9 @@ const webpackConfig = {
         new CleanWebpackPlugin(
             ['dist'],
             {
-                root: __dirname,　　　　　　　
-                verbose:  true,        　　　　　　　　　　
-                dry:      false        　　　　　　　　　　
+                root: __dirname,　　　
+                verbose:  true,　　　　　
+                dry:      false　　　　
             }
         )
     ],
@@ -99,7 +99,7 @@ const entries = getEntries('src/pages/*/index.tsx');
 Object.keys(entries).forEach(function(name) {
     webpackConfig.entry[name] = entries[name];
     const plugin = new HtmlWebpackPlugin({
-       filename: name + '/' + name + '.html',
+       filename: name + '/index.html',
        template: './public/index.html',
        inject: true,
        chunks: [name]

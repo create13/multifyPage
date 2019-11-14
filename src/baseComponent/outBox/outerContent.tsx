@@ -57,7 +57,6 @@ export default class OuterContent extends Component<any, any> {
         this.setState({ panes, activeKey });
       };
     render() {
-        console.log('this.props.children', this.props.children)
         return (
         <div>
             <Tabs

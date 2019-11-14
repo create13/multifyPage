@@ -1,83 +1,142 @@
 import React, { Component } from 'react';
-import { HashRouter, Link, BrowserRouter } from 'react-router-dom'
+import { HashRouter, Link } from 'react-router-dom'
+import '@/static/sass/controllers/home.scss'
 import { Menu } from 'antd';
 import { connect } from 'react-redux'
-import { addList, leftMenu } from '@/store/actionCreators'
+import { addList, defaultSelect, storageId } from '@/store/actionCreators'
 const SubMenu = Menu.SubMenu;
 class boxSide extends Component<any, any> {
     constructor(props: any) {
         super(props)
     }
-    rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
     state = {
-        openKeys: ['sub1'],
-        menuList: [
-            {
-                menuFirst: '审批',
-                menuArray: [
-                    { menuSecond: '我提交的审批', linkRoute: '/main/mySubmitApproval', menukey: '1' },
-                    { menuSecond: '代办审批', linkRoute: '/main/anotherApproval', menukey: '2' },
-                    { menuSecond: '我关注的审批', linkRoute: '/main/attentionApproval', menukey: '3' },
-                    { menuSecond: '下属的代办审批', linkRoute: '/main/subordinatesApproval', menukey: '4' },
-                    { menuSecond: '全部审批', linkRoute: '/main/pageJump', menukey: '5' },
-                    { menuSecond: '已办审批', linkRoute: '/main/finishApproval', menukey: '6' }
-                ]
-            },
-            {
-                menuFirst: '技能考核',
-                menuArray: [
-                    { menuSecond: '过岗项目设置', linkRoute: '/main/redirectProject', menukey: '7' },
-                    { menuSecond: '过岗考核记录管理', linkRoute: '/main/testTabs', menukey: '8' }
-                ],
-            },
-            {
-                menuFirst: '日志',
-                menuArray: [
-                    { menuSecond: '登录日志', linkRoute: '/main/testPage2', menukey: '9' },
-                    { menuSecond: '操作日志', linkRoute: '/main/loading', menukey: '10' }
-                ]
-            }
-        ]
+        firstChoose: true,
+        apiAbout: 0,
+        selectLine: false,
+        menuDetail: {menukey: '1'},
+        chooseStatus: true,
+        secondDetail: {menukey: '-'}
     };
-    onOpenChange = (openKeys: any) => {
-        const latestOpenKey = openKeys.find((key: any) => this.state.openKeys.indexOf(key) === -1);
-        if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-            this.setState({ openKeys });
-        } else {
-            this.setState({
-                openKeys: latestOpenKey ? [latestOpenKey] : [],
-            });
-        }
+    componentWillReceiveProps(nextProps: any) {
+        nextProps.menuList.forEach((item: any, index: number) => {
+            if (nextProps.defaultSelect && item.menuFirst) {
+                this.cacelChoose({}, 0);
+            } else if (nextProps.defaultSelect && item.firstMenu) {
+                let secondDetail = {menukey: '-'};
+                this.setState({
+                    secondDetail
+                });
+            } else if (nextProps.defaultId.length > 0 && item.menuType) {
+                this.cacelChoose({}, 1);
+                let menuDetail = item.menuArray[2];
+                this.setState({
+                    menuDetail
+                })
+                this.props.storageId([]);
+            }
+        })
     }
     addMenuList (menu: any) {
         this.props.addMenu(menu);
-        this.props.chooseMenu(menu);
+    }
+    cacelChoose(data: any, indexs: number) {
+        if (indexs !== 0) {
+            this.setState({
+                chooseStatus: false
+            })
+            this.props.defaultActions(false);
+        } else {
+            this.setState({
+                chooseStatus: true
+            })
+        }
+        this.setState({
+            menuDetail: data
+        })
+    }
+    defaultStatus (menu: any, index: number) {
+        this.props.menuList.forEach((item: any, index: number) => {
+            item.menuArray.forEach((menu: any, indexs: number) => {
+                menu.firstSelect = false;
+            })
+        })
+        this.setState({
+            firstChoose: false,
+            secondDetail: menu
+        })
+        this.props.defaultActions(false);
+        localStorage.setItem('typeData', JSON.stringify(menu));
     }
     render() {
-        let { menuList, openKeys } = this.state;
+        let { menuList } = this.props;
+        let { firstChoose, menuDetail, chooseStatus, secondDetail } = this.state;
         return (
             <HashRouter>
                 <div className="box-side">
-                    {menuList.map((item, index) => {
-                        return (
-                            <Menu mode="inline" key={index + 'menuList'} openKeys={openKeys} onOpenChange={this.onOpenChange} style={{ width: 240 }}>
-                                <SubMenu key={index} title={<span><span>{item.menuFirst}</span></span>}>
-                                    {item.menuArray.map((menu, indexs) => {
-                                        return (
-                                            <Menu.Item key={indexs + 'item'}>
-                                                <Link to={menu.linkRoute} onClick={() => {this.addMenuList(menu)}}>
-                                                    {menu.menuSecond}
-                                                </Link>
-                                            </Menu.Item>
-                                        )
-                                    })}
-                                </SubMenu>
-                            </Menu>
-                        )
-                    })}
+                    <ul className="menu">
+                        <li>
+                            {menuList.map((item: any, index: number) => {
+                                if (item.menuFirst && item.menuFirst !== '') {
+                                    return (
+                                        <div key={index + 'submenu'}>
+                                            <div>{item.menuFirst}</div>
+                                            <ul>
+                                            {item.menuArray.map((menu: any, indexs: number) => {
+                                                return (
+                                                    <li key={menu.menukey} onClick={() => {this.cacelChoose(menu, indexs)}}>
+                                                        <Link to={menu.linkRoute} className={chooseStatus && indexs === 0 ? 'selected': (menuDetail && menuDetail.menukey === menu.menukey) ? 'selected': ''}>{menu.menuSecond}</Link>
+                                                    </li>
+                                                )
+                                            })}
+                                        </ul>
+                                        </div>
+                                    )
+                                } else if (!item.menuFirst && !item.firstMenu) {
+                                    return (
+                                        <div key={index + 'submenu'}>
+                                            <ul>
+                                            {item.menuArray.map((menu: any, indexs: number) => {
+                                                return (
+                                                    <li key={menu.menukey} onClick={() => {this.cacelChoose(menu, indexs)}}>
+                                                        <Link to={menu.linkRoute} className={chooseStatus && indexs === 0 ? 'selected': (menuDetail && menuDetail.menukey === menu.menukey) ? 'selected': ''}>{menu.menuSecond}</Link>
+                                                    </li>
+                                                )
+                                            })}
+                                        </ul>
+                                        </div>
+                                    )
+                                } else if (item.firstMenu) {
+                                    return (
+                                        <div key={index + 'submenu'}>
+                                            <div>{item.firstMenu}</div>
+                                            <ul>
+                                                {item.menuArray.map((menu: any, indexs: number) => {
+                                                    return (
+                                                        <li key={menu.menukey} onClick={() => {this.defaultStatus(menu, indexs)}}>
+                                                            <Link to={menu.linkRoute} className={menu.firstSelect ? 'selected': (secondDetail && secondDetail.menukey === menu.menukey) ? 'selected': ''}>
+                                                                <p>{menu.menuSecond}</p>
+                                                                <p>{menu.menuDes}</p>
+                                                            </Link>
+                                                        </li>
+                                                    )
+                                                })}
+                                            </ul>
+                                    </div>
+                                    )
+                                }
+                            })}
+                        </li>
+                    </ul>
                 </div>
             </HashRouter>
         );
+    }
+}
+const mapStateToProps = (state: any) => {
+    return {
+        menuList: state.globalPromp.menuList,
+        defaultId: state.globalPromp.defaultId,
+        defaultSelect: state.globalPromp.selectFirst
     }
 }
 const mapDispatchToProps = (dispatch: any) => {
@@ -86,10 +145,14 @@ const mapDispatchToProps = (dispatch: any) => {
             const action = addList(data);
             dispatch(action);
         },
-        chooseMenu(data: any) {
-            const action = leftMenu(data);
+        defaultActions(status: boolean) {
+            const action = defaultSelect(status);
+            dispatch(action);
+        },
+        storageId(data: any) {
+            const action = storageId(data);
             dispatch(action);
         }
 	}
 }
-export default connect(null, mapDispatchToProps)(boxSide);
+export default connect(mapStateToProps, mapDispatchToProps)(boxSide);

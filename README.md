@@ -1,5 +1,5 @@
 ## 编译流程
-1.npm run start 开发版运行 访问链接http://localhost:8082/page1/page1.html
+1.npm run start 开发版运行 访问链接http://localhost:8080/openapi#/
 2.npm run build 生产版打包
 ## 技术栈
 1.react
@@ -39,14 +39,14 @@ npm install axios
 8.npm run start 运行项目
 ## 文件目录详情
 ├─dist
-│  ├─page1 // 打包出的多页面文件
+│  ├─openapi // 打包出的多页面文件
 │  └─page2
 ├─node_modules // 安装依赖
 │ 
 ├─public // 公共资源文件
 └─src
     └─pages 
-        ├─page1
+        ├─openapi
         │  ├─api // 接口相关配置
         │  ├─components // 组件内容
         │  │  ├─approval
