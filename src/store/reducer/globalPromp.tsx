@@ -1,4 +1,4 @@
-import { LOADING_STATUS, LANGUAGE_STORAGE, CHANGE_MENU_LIST, STORAGE_FIRST_ID, CHANGE_MENU_STATUS, DEFAULT_SELECT_FIRST } from '../actionTypes'
+import { LOADING_STATUS, LANGUAGE_STORAGE, CHANGE_MENU_LIST, STORAGE_FIRST_ID, CHANGE_MENU_STATUS, DEFAULT_SELECT_FIRST, DEFAULT_HEADER_STATUS } from '../actionTypes'
 import defaultState from '../defaultState'
 export default (state: any = defaultState.globalState, action: any) => {
     const newState = JSON.parse(JSON.stringify(state));
@@ -17,17 +17,15 @@ export default (state: any = defaultState.globalState, action: any) => {
         } else if (typeof action.id === 'object') {
             newState.defaultId = [];
         }
-        // let obj:any = {};
-        // newState.defaultId = newState.defaultId.reduce((prev: any, current: any) => {
-        //     obj[current.api] ? '': obj[current.api] = true && prev.push(current)
-        //     return prev;
-        // }, []);
         return newState;
     } else if (action.type === CHANGE_MENU_STATUS) {
         newState.menuStatus = action.status
         return newState;
     } else if (action.type === DEFAULT_SELECT_FIRST) {
         newState.selectFirst = action.status
+        return newState;
+    } else if (action.type === DEFAULT_HEADER_STATUS) {
+        newState.headerStatus = action.status
         return newState;
     }
     

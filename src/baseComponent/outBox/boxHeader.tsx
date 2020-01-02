@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { Menu, Icon, Input, Avatar } from 'antd';
 import { connect } from 'react-redux'
-import {defaultSelect, storageId } from '@/store/actionCreators'
+import {defaultSelect, storageId, headerSelect } from '@/store/actionCreators'
 import { getApiList, getErrorCodesTree } from '@/api'
 import backgroundImg from '@/static/image/nav_logo.png';
 const Search = Input.Search;
@@ -74,12 +74,17 @@ class boxHeader extends Component<any, any> {
                     })
                 }
             }
+        } else if (!nextProps.headerStatus) {
+            this.setState({
+                current: ''
+            })
         }
     }
     componentWillMount () {
         this.getApiList();
     }
     componentDidMount() {
+        console.log('this.props.history', this.props.history);
         this.setState({
             current: this.state.navigatorMenu[0].icons
         })
@@ -87,6 +92,7 @@ class boxHeader extends Component<any, any> {
     clearMenu(data: any, index: number) {
         this.props.defaultSelect(true);
         this.props.storageId([]);
+        this.props.headerSelect(true);
     }
     render() {
         let { personName, navigatorMenu, current } = this.state;
@@ -98,13 +104,13 @@ class boxHeader extends Component<any, any> {
                         <span className="person-info" style={{fontSize:20,fontWeight:'bold'}}>{personName}</span>
                     </div>
                     <Menu onClick={(e) => { this.handleClick(e) }} selectedKeys={[current]} mode="horizontal" style={{ background:'transparent',fontSize: 18,fontWeight:'bold',marginLeft:0 }}>
-                    {navigatorMenu.map((navigator, nIndex) => (
-                        <Menu.Item key={navigator.icons} onClick={() => {this.clearMenu(navigator, nIndex)}}>
-                            <Link to={navigator.linkAbout}>
-                            {navigator.title}
-                            </Link>
-                        </Menu.Item>
-                    ))}
+                        {navigatorMenu.map((navigator, nIndex) => (
+                            <Menu.Item key={navigator.icons} onClick={() => {this.clearMenu(navigator, nIndex)}}>
+                                <Link to={navigator.linkAbout}>
+                                {navigator.title}
+                                </Link>
+                            </Menu.Item>
+                        ))}
                     </Menu>
                 </div>
             </div>
@@ -113,7 +119,8 @@ class boxHeader extends Component<any, any> {
 }
 const mapStateToProps = (state: any) => {
     return {
-        defaultId: state.globalPromp.defaultId
+        defaultId: state.globalPromp.defaultId,
+        headerStatus: state.globalPromp.headerStatus
     }
 }
 const mapDispatchToProps = (dispatch: any) => {
@@ -126,6 +133,10 @@ const mapDispatchToProps = (dispatch: any) => {
             const action = storageId(status);
             dispatch(action);
         },
+        headerSelect (data: any) {
+            const action = headerSelect(data);
+            dispatch(action);   
+        }
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(boxHeader)

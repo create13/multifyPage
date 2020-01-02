@@ -1,25 +1,24 @@
-import DefaultHome from '@/pages/openapi/components/contentChild/defaultHome'
-import DocumentCenter from '@/pages/openapi/components/approval/documentCenter'
-import ErrorCode from '@/pages/openapi/components/approval/errorCode'
-import TypeDetails from '@/pages/openapi/components/approval/typeDetails'
+import DefaultHome from '@/pages/openapi/views/contentChild/defaultHome'
+import DocumentCenter from '@/pages/openapi/views/approval/documentCenter'
+import ErrorCode from '@/pages/openapi/views/approval/errorCode'
+import TypeDetails from '@/pages/openapi/views/approval/typeDetails'
 import NoMatch from '@/baseComponent/redirect/noMatch'
-// import TypeDescription from '@/pages/openapi/components/approval/typeDescription'
-import TypeFixed from '@/pages/openapi/components/approval/typeFixed'
-import ClaimList from '@/pages/openapi/components/approval/claimList'
-import TabsControl from '@/pages/openapi/components/approval/tabsControl'
-import ApiTest from '@/pages/openapi/components/approval/apiTest'
-import Loading from '@/baseComponent/outBox/loading'
-import Main from '../components/main'
-import ApiDocument from '@/pages/openapi/components/approval/apiDocument'
-import CustomField from '@/pages/openapi/components/approval/customField'
-import SdkDirections from '@/pages/openapi/components/approval/sdkDirections'
+// import TypeDescription from '@/pages/openapi/views/approval/typeDescription'
+import TypeFixed from '@/pages/openapi/views/approval/typeFixed'
+import ClaimList from '@/pages/openapi/views/approval/claimList'
+import TabsControl from '@/pages/openapi/views/approval/tabsControl'
+import ApiTest from '@/pages/openapi/views/approval/apiTest'
+import Main from '../views/main'
+import ApiDocument from '@/pages/openapi/views/approval/apiDocument'
+import CustomField from '@/pages/openapi/views/approval/customField'
+import SdkDirections from '@/pages/openapi/views/approval/sdkDirections'
+import ExportInterface from '@/pages/openapi/views/export/exportInterface'
 let routes = [
     {path: '/apiTest/:apiId/:projectId', component: ApiTest},
     {path: '/', component: Main, children:[
         {path: '/', component: DefaultHome, exact: true},
         {path: '/documentCenter', component: DocumentCenter},
         {path: '/sdkDirections', component: SdkDirections},
-        {path: '/loading', component: Loading},
         {path: '/errorCode/:errorId', component: ErrorCode},
         // {path: '/typeDescription', component: TypeDescription},
         {path: '/apiDocument/:apiId', component: ApiDocument},
@@ -27,7 +26,8 @@ let routes = [
         {path: '/tabsControl', component: TabsControl},
         {path: '/typeDetails/:typeId/:moduleId', component: TypeDetails},
         {path: '/typeFixed', component: TypeFixed},
-        {path: '/customField/:customId/:customType/:customDes/:moduleName', component: CustomField}
+        {path: '/customField/:customId/:customType/:customDes/:moduleName', component: CustomField},
+        {path: '/exportInterface', component: ExportInterface}
     ]},
     {component: NoMatch}
 

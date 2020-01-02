@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import Home from './components/home'
+import Home from './views/home'
 class App extends Component{
 	render() {
 		return (

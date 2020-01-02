@@ -1,4 +1,4 @@
-import { REQ_LIST_DATA, REQ_REMOVE_DATA, REQ_LOADING, LANGUAGE_STORAGE, DELETE_RIGHT_TABS, CHANGE_MENU_LIST, STORAGE_FIRST_ID, CHANGE_MENU_STATUS, DEFAULT_SELECT_FIRST } from './actionTypes'
+import { REQ_LIST_DATA, REQ_REMOVE_DATA, REQ_LOADING, LANGUAGE_STORAGE, DELETE_RIGHT_TABS, CHANGE_MENU_LIST, STORAGE_FIRST_ID, CHANGE_MENU_STATUS, DEFAULT_SELECT_FIRST, DEFAULT_HEADER_STATUS } from './actionTypes'
 export const addList = (todos: any) => ({
     type: REQ_LIST_DATA,
     todos
@@ -33,5 +33,9 @@ export const menuStatus = (status: any) => ({
 })
 export const defaultSelect = (status: any) => ({
     type: DEFAULT_SELECT_FIRST,
+    status
+})
+export const headerSelect = (status: any) => ({
+    type: DEFAULT_HEADER_STATUS,
     status
 })

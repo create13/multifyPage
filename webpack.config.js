@@ -15,7 +15,7 @@ const webpackConfig = {
     //设置开发者工具的端口号,不设置则默认为8080端口
     devServer: {
         inline: true,
-        port: 80,
+        port: 8099,
         compress: true,
         historyApiFallback: true
     },

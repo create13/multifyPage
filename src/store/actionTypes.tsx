@@ -13,6 +13,7 @@ export const CHANGE_MENU_LIST = 'change_menu_list';
 export const STORAGE_FIRST_ID = 'storage_first_id';
 export const CHANGE_MENU_STATUS = 'change_menu_status';
 export const DEFAULT_SELECT_FIRST = 'default_select_first';
+export const DEFAULT_HEADER_STATUS = 'default_header_status'; // 头部导航栏选中状态
 /**
  * saga
  */

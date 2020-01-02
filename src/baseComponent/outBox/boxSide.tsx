@@ -121,7 +121,7 @@ class boxSide extends Component<any, any> {
                                                     )
                                                 })}
                                             </ul>
-                                    </div>
+                                        </div>
                                     )
                                 }
                             })}
